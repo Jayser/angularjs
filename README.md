@@ -49,6 +49,7 @@ This will create `reports/webpack-stats.json` file for [analyse](https://webpack
 
 ## Style Guide
 
+* [Git Flow](https://habrahabr.ru/post/106912/)
 * [Style Guide](https://github.com/toddmotto/angular-styleguide)
 * [johnpapa](https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md)
 
