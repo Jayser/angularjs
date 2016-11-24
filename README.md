@@ -61,8 +61,8 @@ This will create `reports/webpack-stats.json` file for [analyse](https://webpack
 
 ## Authors
 
-* [Azizov Sarhan](https://github.com/Jayser/)
-* [Zhuravel Dmitriy](https://github.com/dmZhur)
+* [Sarhan Azizov](https://github.com/Jayser/)
+* [Dmitriy Zhuravel](https://github.com/dmZhur)
 * [Sergiy Gurko](https://github.com/DStereo)
 
 ## License
