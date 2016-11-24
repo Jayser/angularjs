@@ -64,6 +64,7 @@ This will create `reports/webpack-stats.json` file for [analyse](https://webpack
 * [Sarhan Azizov](https://github.com/Jayser/)
 * [Dmitriy Zhuravel](https://github.com/dmZhur)
 * [Sergiy Gurko](https://github.com/DStereo)
+* [Oleg Rovenskyi](https://github.com/OlegRovenskyi)
 
 ## License
 MIT - do anything with the code, but don't blame me if it does not work.
