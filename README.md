@@ -41,10 +41,13 @@ This will create `reports/webpack-stats.json` file for [analyse](https://webpack
 
 ## Git config
 
-* git config --global user.name "User Name"
-* git config --global user.email "user_email"
-* git config --global color.ui true
+* git config user.name "User Name"
+* git config user.email "user_email"
+* git config color.ui true
 * git config core.ignorecase false
+* git config merge.ff no
+* git config merge.commit no
+* git config pull.ff yes
 
 
 ## Style Guide
