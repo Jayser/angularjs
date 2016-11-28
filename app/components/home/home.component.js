@@ -3,10 +3,11 @@ import templateUrl from './home.jade';
 export const HomeComponent = {
     template: templateUrl(),
     controller: class HomeComponent {
-        constructor() {
+        constructor($log) {
+            this.$log = $log;
         }
         $onInit() {
-            console.log('Home => ng init');
+            this.$log('Home => ng init');
         }
     }
 };

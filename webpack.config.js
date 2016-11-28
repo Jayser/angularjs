@@ -21,11 +21,11 @@ const cfg = webpackMerge({
     },
     module: {
         preLoaders: [
-            // {
-            //     test2: /\.js$/,
-            //     loader: 'eslint',
-            //     include: [cfgBase.paths.source]
-            // }
+            {
+                test: /\.js$/,
+                loader: 'eslint',
+                include: [cfgBase.paths.source]
+            }
         ],
         loaders: [
             {
