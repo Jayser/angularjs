@@ -7,7 +7,7 @@ module.exports = {
     entry: [
         'Webpack-dev-server/client?http://localhost:' + cfgBase.port,
         'Webpack/hot/only-dev-server',
-        './index.js'
+        './app.module.js'
     ],
     output: {
         publicPath: 'http://localhost:' + cfgBase.port + '/'

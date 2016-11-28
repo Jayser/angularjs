@@ -2,9 +2,8 @@ doctype html
 html(lang='en')
   head
     meta(charset='UTF-8')
+    base(href='/')
     link(rel='shortcut icon', href=htmlWebpackPlugin.options.favicon)
     title=htmlWebpackPlugin.options.title
-  body
-    #app
-      div(class='fa fa-glass')
-        =123
+  body(ng-app='app')
+    app

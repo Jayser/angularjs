@@ -21,11 +21,11 @@ const cfg = webpackMerge({
     },
     module: {
         preLoaders: [
-            {
-                test: /\.js$/,
-                loader: 'eslint',
-                include: [cfgBase.paths.source]
-            }
+            // {
+            //     test2: /\.js$/,
+            //     loader: 'eslint',
+            //     include: [cfgBase.paths.source]
+            // }
         ],
         loaders: [
             {
@@ -35,7 +35,7 @@ const cfg = webpackMerge({
             {
                 test: /\.js$/,
                 include: [cfgBase.paths.source],
-                loaders: ['babel?extends=' + cfgBase.paths.babel]
+                loaders: ['ng-annotate', 'babel?extends=' + cfgBase.paths.babel]
             },
             {
                 test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
@@ -53,6 +53,7 @@ const cfg = webpackMerge({
     },
     postcss: cfgBase.postcss,
     plugins: [
+        new Webpack.NoErrorsPlugin(),
         new require('force-case-sensitivity-webpack-plugin'),
         new Webpack.NoErrorsPlugin(),
         new CleanWebpackPlugin([cfgBase.paths.output]),
@@ -63,7 +64,7 @@ const cfg = webpackMerge({
         new HtmlWebpackPlugin({
             title: cfgBase.pkg.name,
             template: 'index.jade',
-            favicon: 'assets/img/favicon.ico',
+            favicon: 'favicon.ico',
             hash: true
         })
     ],

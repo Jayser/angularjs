@@ -13,12 +13,6 @@ npm install
 npm start
 ```
 
-This will start local development HMR server
-
-```
-npm run build:dev
-```
-
 This will build development version and put in build folder
 
 ```

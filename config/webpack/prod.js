@@ -4,7 +4,7 @@ const cfgBase = require('../base');
 
 module.exports = {
     entry: [
-        './index.js'
+        './app.module.js'
     ],
     output: {
         publicPath: './'

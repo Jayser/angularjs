@@ -8,7 +8,6 @@
     "lint": "eslint app --config=config/eslint/.eslintrc",
     "start": "better-npm-run server",
     "build:dev": "better-npm-run build:dev",
-    "build:prod": "better-npm-run build:prod",
     "test": "better-npm-run test",
     "analyze": "better-npm-run analyze"
   },
@@ -56,6 +55,8 @@
   },
   "homepage": "https://github.com/Jayser/angularjs#readme",
   "devDependencies": {
+    "angular": "1.5.9",
+    "angular-ui-router": "1.0.0-beta.3",
     "autoprefixer": "6.5.3",
     "babel-core": "6.18.2",
     "babel-loader": "6.2.8",
@@ -72,6 +73,7 @@
     "file-loader": "0.9.0",
     "force-case-sensitivity-webpack-plugin": "0.2.1",
     "html-webpack-plugin": "2.24.1",
+    "ng-annotate-loader": "0.2.0",
     "postcss-loader": "1.1.1",
     "precss": "1.4.0",
     "pug": "2.0.0-beta6",
