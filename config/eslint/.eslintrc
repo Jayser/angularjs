@@ -1,6 +1,8 @@
 {
   "env": {
     "browser": true,
+    "jasmine": true,
+    "mocha": true,
     "node": true,
     "es6": true
   },
@@ -8,8 +10,19 @@
     "ecmaVersion": 7,
     "sourceType": "module",
     "ecmaFeatures": {
+      "modules": true,
       "experimentalObjectRestSpread": true
     }
+  },
+  "globals" : {
+    "chai"       : false,
+    "describe"   : false,
+    "it"         : false,
+    "before"     : false,
+    "beforeEach" : false,
+    "after"      : false,
+    "afterEach"  : false,
+    "inject"     : false
   },
   "plugins": ["angular"],
   "extends": ["eslint:recommended", "angular"],

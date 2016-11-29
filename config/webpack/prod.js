@@ -1,8 +1,12 @@
 const Webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpackMerge = require('webpack-merge');
+const webpackValidator = require('webpack-validator');
+const commonCfg = require('./common');
 const cfgBase = require('../base');
 
-module.exports = {
+const cfg = webpackMerge(commonCfg, {
     entry: [
         './app.module.js'
     ],
@@ -24,10 +28,19 @@ module.exports = {
                 warnings: false
             }
         }),
-        new ExtractTextPlugin("css/main.css"),
+        new HtmlWebpackPlugin(Object.assign(cfgBase.htmlWebpackPlugin, {
+            minify: {
+                collapseWhitespace: true,
+                removeComments: true,
+                removeRedundantAttributes: true,
+                removeScriptTypeAttributes: true,
+                removeStyleLinkTypeAttributes: true
+            }
+        })),
+        new ExtractTextPlugin("css/main.css")
     ],
-    devtool: 'inline-source-map',
-    devServer: {
-        port: cfgBase.port
-    }
-};
+    devtool: 'source-map',
+    devServer: { port: cfgBase.port }
+});
+
+module.exports = webpackValidator(cfg);
