@@ -3,10 +3,10 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpackMerge = require('webpack-merge');
 const webpackValidator = require('webpack-validator');
-const commonCfg = require('./common');
-const cfgBase = require('../base');
+const commonWebpackCfg = require('./webpack.common');
+const cfgBase = require('../index');
 
-const cfg = webpackMerge(commonCfg, {
+const cfg = webpackMerge(commonWebpackCfg, {
     entry: [
         'Webpack-dev-server/client?http://localhost:' + cfgBase.port,
         'Webpack/hot/only-dev-server',

@@ -1,6 +1,6 @@
 const Webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const cfgBase = require('../base');
+const cfgBase = require('../index');
 
 module.exports = {
     context: cfgBase.paths.source,
@@ -44,7 +44,7 @@ module.exports = {
             }
         ]
     },
-    postcss: cfgBase.postcss,
+    postcss: cfgBase.paths.postCss,
     plugins: [
         new CleanWebpackPlugin([cfgBase.paths.output, cfgBase.paths.reports], {
             root: cfgBase.paths.root
