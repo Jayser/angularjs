@@ -18,6 +18,11 @@ const base = {
         img: './img',
         fonts: './fonts'
     },
+    styleLintPlugin: {
+        configFile: path.resolve('config/stylelint/.stylelintrc'),
+        files: ['../app/**/*.scss'],
+        failOnError: false,
+    },
     htmlWebpackPlugin: {
         title: packageJSON.name,
         template: 'index.jade',

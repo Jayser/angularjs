@@ -1,7 +1,6 @@
 ## Stylesheet
 
-* validation BEM 
-* validation css
+* validation BEM
 * validation url
 
 ## JS

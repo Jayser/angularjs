@@ -1,5 +1,6 @@
 const Webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 const cfgBase = require('../index');
 
 module.exports = {
@@ -54,7 +55,8 @@ module.exports = {
         new Webpack.DefinePlugin({
             IS_DEVELOPMENT: cfgBase.isDevelop,
             IS_PROD: cfgBase.isProd
-        })
+        }),
+        new StyleLintPlugin(cfgBase.styleLintPlugin)
     ],
     eslint: { configFile: cfgBase.paths.eslint }
 };

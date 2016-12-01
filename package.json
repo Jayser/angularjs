@@ -9,7 +9,9 @@
     "start": "better-npm-run server",
     "build:prod": "better-npm-run build:prod",
     "test": "better-npm-run test",
-    "analyze": "better-npm-run analyze"
+    "analyze": "better-npm-run analyze",
+    "stylint": "stylelint app/**/*.scss --config config/stylelint/.stylelintrc",
+    "prestart": "npm install && npm i -g stylelint"
   },
   "betterScripts": {
     "server": {
@@ -49,14 +51,11 @@
   },
   "homepage": "https://github.com/Jayser/angularjs#readme",
   "devDependencies": {
-    "angular": "1.5.9",
     "angular-mocks": "1.5.9",
-    "angular-ui-router": "1.0.0-beta.3",
     "autoprefixer": "6.5.3",
     "babel-core": "6.18.2",
     "babel-loader": "6.2.8",
     "babel-plugin-transform-runtime": "6.15.0",
-    "babel-polyfill": "6.16.0",
     "babel-preset-latest": "6.16.0",
     "babel-preset-stage-0": "6.16.0",
     "babel-runtime": "6.18.0",
@@ -86,6 +85,9 @@
     "pug": "2.0.0-beta6",
     "pug-loader": "2.3.0",
     "style-loader": "0.13.1",
+    "stylelint": "7.6.0",
+    "stylelint-config-standard": "15.0.0",
+    "stylelint-webpack-plugin": "0.4.0",
     "url-loader": "0.5.7",
     "webpack": "1.13.3",
     "webpack-dev-server": "1.16.2",
@@ -93,6 +95,8 @@
     "webpack-validator": "2.2.9"
   },
   "dependencies": {
+    "angular": "1.5.9",
+    "angular-ui-router": "0.3.2",
     "font-awesome": "4.7.0"
   }
 }
