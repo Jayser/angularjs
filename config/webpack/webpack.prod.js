@@ -7,9 +7,13 @@ const commonWebpackCfg = require('./webpack.common');
 const cfgBase = require('../index');
 
 const cfg = webpackMerge(commonWebpackCfg, {
-    entry: [
-        './app.module.js'
-    ],
+    entry: {
+        app: './app.module.js',
+        vendor: [
+            'angular',
+            'angular-ui-router'
+        ]
+    },
     output: {
         publicPath: './'
     },
@@ -17,7 +21,7 @@ const cfg = webpackMerge(commonWebpackCfg, {
         loaders: [
             {
                 test: /\.(css|scss)$/,
-                loader: ExtractTextPlugin.extract("style", ["css?minimize&sourceMap", "postcss"])
+                loader: ExtractTextPlugin.extract("style", ["css?minimize&sourceMap", "resolve-url", "postcss"])
             }
         ]
     },

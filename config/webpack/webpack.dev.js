@@ -19,7 +19,7 @@ const cfg = webpackMerge(commonWebpackCfg, {
         loaders: [
             {
                 test: /\.(css|scss)$/,
-                loader: ExtractTextPlugin.extract("style", ["css", "postcss"])
+                loader: ExtractTextPlugin.extract("style", ["css", "resolve-url", "postcss"])
             }
         ]
     },
