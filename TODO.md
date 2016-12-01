@@ -6,3 +6,8 @@
 ## JS
 
 * separate Vendors
+* Mocks
+
+## AUTOMATION TOOL
+
+* pre git
