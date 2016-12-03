@@ -1,6 +1,6 @@
 import templateUrl from './home.jade';
 
-export const HomeComponent = {
+export default {
     template: templateUrl(),
     controller: class HomeComponent {
         constructor() {

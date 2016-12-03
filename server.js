@@ -6,7 +6,6 @@ const webpackCfg = require('./webpack.config');
 new WebpackDevServer(Webpack(webpackCfg), {
     publicPath: webpackCfg.output.publicPath,
     historyApiFallback: true,
-    noInfo: true,
     inline: true,
     hot: true,
     stats: { colors: true }
@@ -15,5 +14,4 @@ new WebpackDevServer(Webpack(webpackCfg), {
 
     //open("http://localhost:" + webpackCfg.devServer.port + "/index.jade");
     console.log('Listening at localhost:'  + webpackCfg.devServer.port);
-    console.log('Watching...');
 });

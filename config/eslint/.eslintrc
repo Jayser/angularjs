@@ -24,5 +24,9 @@
     "inject"     : false
   },
   "plugins": ["angular"],
-  "extends": ["eslint:recommended", "angular"]
+  "extends": ["eslint:recommended", "angular"],
+  "rules": {
+    "no-console": "off",
+    "no-debugger": "off"
+  }
 }

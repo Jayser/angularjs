@@ -8,7 +8,7 @@ const cfgBase = require('../index');
 
 const cfg = webpackMerge(commonWebpackCfg, {
     entry: {
-        app: './app.module.js',
+        app: './index.js',
         vendor: [
             'angular',
             'angular-ui-router'

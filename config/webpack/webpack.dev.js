@@ -10,7 +10,7 @@ const cfg = webpackMerge(commonWebpackCfg, {
     entry: [
         'Webpack-dev-server/client?http://localhost:' + cfgBase.port,
         'Webpack/hot/only-dev-server',
-        './app.module.js'
+        './index.js'
     ],
     output: {
         publicPath: 'http://localhost:' + cfgBase.port + '/'

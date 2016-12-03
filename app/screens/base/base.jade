@@ -1,0 +1,16 @@
+header
+    | Header
+nav
+    ul
+        li
+            a(ui-sref='home') home
+        li
+            a(ui-sref='test') Component
+        li
+            a(ui-sref='test2') Common component
+
+main(ng-transclude)
+    ='inherited content'
+
+footer
+    | footer

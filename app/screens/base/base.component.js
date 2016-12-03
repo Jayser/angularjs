@@ -1,8 +1,9 @@
-import templateUrl from './test.jade';
+import templateUrl from './base.jade';
 
 export default {
     template: templateUrl(),
-    controller: class TestComponent {
+    transclude: true,
+    controller: class BaseComponent {
         constructor() {
         }
         $onInit() {
