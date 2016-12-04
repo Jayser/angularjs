@@ -1,4 +1,3 @@
-import angular from 'angular';
 import TestModule2 from './test2';
 
 export default angular

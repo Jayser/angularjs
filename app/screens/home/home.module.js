@@ -1,4 +1,3 @@
-import angular from 'angular';
 import HomeComponent from './home.component';
 import './home.scss';
 

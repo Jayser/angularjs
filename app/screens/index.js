@@ -1,4 +1,3 @@
-import angular from 'angular';
 import BaseScreen from './base';
 import HomeScreen from './home';
 

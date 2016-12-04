@@ -1,4 +1,3 @@
-import angular from 'angular';
 import HeaderComponent from './header.component';
 import './header.scss';
 

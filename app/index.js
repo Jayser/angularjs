@@ -1,6 +1,3 @@
-import angular from 'angular';
-import uiRouter from 'angular-ui-router';
-
 import CommonModule from './components/common';
 import ComponentsModule from './components';
 import ScreensModule from './screens';
@@ -13,7 +10,7 @@ export default angular
         CommonModule,
         ComponentsModule,
         ScreensModule,
-        uiRouter
+        'ui.router'
     ])
     .config(routes)
     .name;

@@ -1,7 +1,7 @@
-import templateUrl from './test2.jade';
+import template from './test2.jade';
 
 export default {
-    template: templateUrl(),
+    template: template(),
     controller: class Test2Component {
         constructor() {
         }
