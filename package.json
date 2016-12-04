@@ -5,34 +5,42 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "lint": "eslint app --config=config/eslint/.eslintrc",
+    "prestart": "npm install && npm i -g webpack && npm i -g stylelint",
     "server": "better-npm-run server",
+    "server:mock": "better-npm-run server:mock",
     "build:prod": "better-npm-run build:prod",
     "test": "better-npm-run test",
-    "analyze": "better-npm-run analyze",
     "stylint": "stylelint app/**/*.scss --config config/stylelint/.stylelintrc",
-    "prestart": "npm install && npm i -g webpack && npm i -g stylelint"
+    "lint": "eslint app --config=config/eslint/.eslintrc",
+    "analyze": "better-npm-run analyze"
   },
   "betterScripts": {
     "server": {
       "command": "node server.js",
       "env": {
         "NODE_ENV": "development",
-        "PORT": 8001
+        "PORT": 8000
+      }
+    },
+    "server:mock": {
+      "command": "node server.js",
+      "env": {
+        "NODE_ENV": "mock",
+        "PORT": 8010
       }
     },
     "build:prod": {
       "command": "webpack --config --colors",
       "env": {
         "NODE_ENV": "production",
-        "PORT": 8002
+        "PORT": 8005
       }
     },
     "test": {
       "command": "karma start ./config/karma/karma.conf.js",
       "env": {
         "NODE_ENV": "test",
-        "PORT": 8003
+        "PORT": 8008
       }
     },
     "analyze": {
@@ -52,9 +60,9 @@
   "homepage": "https://github.com/Jayser/angularjs#readme",
   "devDependencies": {
     "angular-mocks": "1.5.9",
-    "angular-ui-router": "1.0.0-beta.3",
     "autoprefixer": "6.5.3",
     "babel-core": "6.18.2",
+    "babel-eslint": "7.1.1",
     "babel-loader": "6.2.8",
     "babel-plugin-transform-runtime": "6.15.0",
     "babel-preset-latest": "6.16.0",
@@ -70,6 +78,7 @@
     "extract-text-webpack-plugin": "1.0.1",
     "file-loader": "0.9.0",
     "force-case-sensitivity-webpack-plugin": "0.2.1",
+    "glob": "7.1.1",
     "html-webpack-plugin": "2.24.1",
     "i": "0.3.5",
     "jasmine-core": "2.5.2",

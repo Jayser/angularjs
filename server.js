@@ -1,17 +1,24 @@
+const path = require('path');
+const glob = require('glob');
 const Webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
 
 const webpackCfg = require('./webpack.config');
+const cfgBase = require('./config');
 
-new WebpackDevServer(Webpack(webpackCfg), {
-    publicPath: webpackCfg.output.publicPath,
-    historyApiFallback: true,
-    inline: true,
-    hot: true,
-    stats: { colors: true }
-}).listen(webpackCfg.devServer.port, 'localhost', function (err) {
-    if (err) { console.log(err); }
+const files = glob.sync(path.resolve('app/data/mocks') + '/**/*.json');
+const routes = {};
 
-    //open("http://localhost:" + webpackCfg.devServer.port + "/index.jade");
-    console.log('Listening at localhost:'  + webpackCfg.devServer.port);
+const server = new WebpackDevServer(
+    Webpack(webpackCfg),
+    cfgBase.webpackDevServer
+);
+
+server.listen(cfgBase.port, err => {
+    if (err) {
+        console.log(err);
+    }
+
+    //open("http://localhost:" + webpackCfg.devServer.port + "/index.html");
+    console.log('Listening at localhost:'  + cfgBase.port);
 });

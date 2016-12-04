@@ -49,6 +49,9 @@ This will create `reports/webpack-stats.json` file for [analyse](https://webpack
 * [Git Flow](https://habrahabr.ru/post/106912/)
 * [Style Guide](https://github.com/toddmotto/angular-styleguide)
 * [johnpapa](https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md)
+* [jade](https://pugjs.org/api/migration-v2.html)
+* [uui](https://uui.epam.com)
+* [component](https://docs.angularjs.org/guide/component)
 
 ## Technologies & Tools
 

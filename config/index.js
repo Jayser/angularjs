@@ -2,6 +2,12 @@ const path = require('path');
 const packageJSON = require('../package.json');
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
+const PORT = process.env.PORT || 8000;
+let PUBLIC_PATH = './';
+
+if (NODE_ENV === 'development') {
+    PUBLIC_PATH = 'http://localhost:' + PORT + '/';
+}
 
 const base = {
     paths: {
@@ -30,10 +36,25 @@ const base = {
         inject: 'body',
         hash: true
     },
+    environments: {
+        mock: 'http://localhost:' + PORT
+    },
+    webpackDevServer: {
+        publicPath: PUBLIC_PATH,
+        historyApiFallback: true,
+        displayModules: true,
+        displayErrorDetails: true,
+        displayReasons: true,
+        displayChunks: true,
+        hot: true,
+        stats: { colors: true }
+    },
+    publicPath: PUBLIC_PATH,
+    port: PORT,
     env: NODE_ENV,
     isDevelop: NODE_ENV === 'development',
     isProd: NODE_ENV === 'production',
-    port: process.env.PORT || 8080,
+    isMock: NODE_ENV === 'mock',
     pkg: packageJSON
 };
 

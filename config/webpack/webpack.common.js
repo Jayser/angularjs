@@ -1,17 +1,29 @@
 const Webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 const cfgBase = require('../index');
 
 module.exports = {
     context: cfgBase.paths.source,
+    entry: {
+        app: ['./index.js'],
+        vendor: [
+            'angular',
+            'angular-ui-router',
+            'angular-mocks'
+        ]
+    },
     output: {
         path: cfgBase.paths.output,
+        publicPath: cfgBase.publicPath,
         filename: 'js/[name].js?[hash]'
     },
     resolve: {
         root: cfgBase.paths.source,
-        extensions: ['', '.scss', '.css', '.js']
+        extensions: ['', '.jade', '.scss', '.css', '.js']
     },
     module: {
         preLoaders: [
@@ -50,13 +62,27 @@ module.exports = {
         new CleanWebpackPlugin([cfgBase.paths.output, cfgBase.paths.reports], {
             root: cfgBase.paths.root
         }),
+        new Webpack.optimize.CommonsChunkPlugin({
+            name: "app",
+            minChunks: 3,
+            chunks: ["app"],
+        }),
+        new Webpack.optimize.CommonsChunkPlugin({
+            name: "vendor",
+            minChunks: 3,
+            chunks: ["vendor"],
+        }),
         new require('force-case-sensitivity-webpack-plugin'),
         new Webpack.NoErrorsPlugin(),
         new Webpack.DefinePlugin({
             IS_DEVELOPMENT: cfgBase.isDevelop,
-            IS_PROD: cfgBase.isProd
+            IS_PROD: cfgBase.isProd,
+            IS_MOCK: cfgBase.isMock
         }),
-        new StyleLintPlugin(cfgBase.styleLintPlugin)
+        new StyleLintPlugin(cfgBase.styleLintPlugin),
+        new ExtractTextPlugin("css/main.css", { disable: cfgBase.isDevelop }),
+        new HtmlWebpackPlugin(cfgBase.htmlWebpackPlugin)
     ],
-    eslint: { configFile: cfgBase.paths.eslint }
+    eslint: { configFile: cfgBase.paths.eslint },
+    devtool: 'inline-source-map'
 };

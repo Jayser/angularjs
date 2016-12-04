@@ -4,7 +4,7 @@ export default ($locationProvider, $stateProvider, $urlRouterProvider) => {
     $stateProvider
         .state('home', {
             url: '/',
-            component: 'home'
+            component: 'homeScreen'
         })
         .state('test', {
             url: '/test',

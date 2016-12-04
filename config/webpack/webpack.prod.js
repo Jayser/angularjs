@@ -1,22 +1,13 @@
 const Webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpackMerge = require('webpack-merge');
 const webpackValidator = require('webpack-validator');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
 const commonWebpackCfg = require('./webpack.common');
 const cfgBase = require('../index');
 
 const cfg = webpackMerge(commonWebpackCfg, {
-    entry: {
-        app: './index.js',
-        vendor: [
-            'angular',
-            'angular-ui-router'
-        ]
-    },
-    output: {
-        publicPath: './'
-    },
     module: {
         loaders: [
             {
@@ -40,11 +31,9 @@ const cfg = webpackMerge(commonWebpackCfg, {
                 removeScriptTypeAttributes: true,
                 removeStyleLinkTypeAttributes: true
             }
-        })),
-        new ExtractTextPlugin("css/main.css")
+        }))
     ],
-    devtool: 'source-map',
-    devServer: { port: cfgBase.port }
+    devtool: 'source-map'
 });
 
 module.exports = webpackValidator(cfg);

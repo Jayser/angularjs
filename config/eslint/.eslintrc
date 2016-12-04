@@ -23,10 +23,13 @@
     "afterEach"  : false,
     "inject"     : false
   },
+  "parser": "babel-eslint",
   "plugins": ["angular"],
   "extends": ["eslint:recommended", "angular"],
   "rules": {
     "no-console": "off",
-    "no-debugger": "off"
+    "no-debugger": "off",
+    "angular/log": "off",
+    "angular/window-service": "off"
   }
 }

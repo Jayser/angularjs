@@ -1,8 +1,8 @@
 import angular from 'angular';
-import TestModule from './test'
+import HeaderModule from './header'
 
 export default angular
     .module('app.components', [
-        TestModule
+        HeaderModule
     ])
     .name;
