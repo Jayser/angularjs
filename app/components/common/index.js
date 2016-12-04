@@ -5,3 +5,4 @@ export default angular
         TestModule2
     ])
     .name;
+
