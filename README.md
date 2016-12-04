@@ -3,34 +3,41 @@
 ## Installation
 
 ```
-npm install
+npm run prestart
 ```
 
 
 ## Development
 
 ```
-npm start
+npm run server
 ```
+This will start dev server on `http://localhost:8000` in the memory.
 
-This will build development version and put in build folder
-
-```
-npm run lint
-```
-
-This will check on static defects 
 
 ```
 npm run build:prod
 ```
+This will build production version and put in the build folder
 
-This will build production version and put in the same build folder
+```
+npm test
+```
+This will check tests
+
+```
+npm run lint
+```
+This will check javascript on defects  
+
+```
+npm run stylint
+```
+This will check stylesheets on defects  
 
 ```
 npm run analyze
 ```
-
 This will create `reports/webpack-stats.json` file for [analyse](https://webpack.github.io/analyse/) webpack service
 
 ## Git config
@@ -43,6 +50,27 @@ This will create `reports/webpack-stats.json` file for [analyse](https://webpack
 * git config merge.commit no
 * git config pull.ff yes
 
+## Pre-commit
+* run `lint`, `stylint`, `test` tasks
+* Commit msg should match: <type>: <subject>
+
+
+| if they have some errors 
+| the commit will be failed
+
+## [Types](http://npm.im/commitizen)
+* feat - A new feature
+* fix - A bug fix
+* docs - Documentation only changes
+* style - Changes that don't affect the meaning of the code 
+* refactor - A code change that neither fixes a bug or adds a feature
+* perf - A code change that improves performance
+* test - Adding missing tests
+* build - Changes to the build process or auxiliary tools and libraries such as documentation generation
+* revert - A revert some changes 
+* merge - A merge some changes
+* rebase - A merge some changes
+* cherry-pick -  A cherry-pick some changes
 
 ## Style Guide
 
@@ -55,10 +83,15 @@ This will create `reports/webpack-stats.json` file for [analyse](https://webpack
 
 ## Technologies & Tools
 
-* webpack
-* angularJS
-* babel/es2017/stage-0
+* jade
 * postcss
+* stylelint
+* font-awesome
+* angularJS/UI Router
+* babel/latest/stage-0
+* jasmine/karma
+* eslint
+* webpack
 
 ## Authors
 
