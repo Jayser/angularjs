@@ -2,11 +2,17 @@ const Webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
 
 const webpackCfg = require('./webpack.config');
+const mockCfg = require('./config/mock/mock.config');
 const cfgBase = require('./config');
+let webpackDevServer = cfgBase.webpackDevServer;
+
+if (cfgBase.isMock) {
+    webpackDevServer.setup = mockCfg;
+}
 
 const server = new WebpackDevServer(
     Webpack(webpackCfg),
-    cfgBase.webpackDevServer
+    webpackDevServer
 );
 
 server.listen(cfgBase.port, err => {

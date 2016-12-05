@@ -1,7 +1,6 @@
 {
-    "logoutResponse": {
-        "userId": 1000000129276,
-        "message": "Logout successful.",
-        "userLoggedIn": false
+    "login": {
+        "user": "user",
+        "role": "admin"
     }
 }

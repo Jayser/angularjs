@@ -1,6 +1,5 @@
-const path = require('path');
+const resolve = require('path').resolve;
 
-const mockCfg = require('./mock/mock.config');
 const packageJSON = require('../package.json');
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
@@ -13,21 +12,22 @@ if (NODE_ENV === 'production') {
 
 const cfg = {
     paths: {
-        root: path.resolve(),
-        source: path.resolve('app'),
-        output: path.resolve('build'),
-        reports: path.resolve('reports'),
-        coverage: path.resolve('reports/coverage'),
-        babel: path.resolve('config/babel/.babelrc'),
-        eslint: path.resolve('config/eslint/.eslintrc'),
-        testWebpackConfig: path.resolve('config/webpack/test'),
-        postCss: path.resolve('config/postcss/postcss.config.js'),
+        root: resolve(),
+        source: resolve('app'),
+        output: resolve('build'),
+        reports: resolve('reports'),
+        coverage: resolve('reports/coverage'),
+        babel: resolve('config/babel/.babelrc'),
+        eslint: resolve('config/eslint/.eslintrc'),
+        testWebpackConfig: resolve('config/webpack/test'),
+        postCss: resolve('config/postcss/postcss.config.js'),
+        mocks: resolve('app/data/mocks'),
         tests: '**/*.spec.js',
         img: './img',
         fonts: './fonts'
     },
     styleLintPlugin: {
-        configFile: path.resolve('config/stylelint/.stylelintrc'),
+        configFile: resolve('config/stylelint/.stylelintrc'),
         files: ['../app/**/*.scss'],
         failOnError: false,
     },
@@ -56,9 +56,5 @@ const cfg = {
     isMock: NODE_ENV === 'mock',
     pkg: packageJSON
 };
-
-if (cfg.isMock) {
-    cfg.webpackDevServer.setup = mockCfg;
-}
 
 module.exports = cfg;

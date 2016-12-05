@@ -5,9 +5,10 @@ switch (process.env.NODE_ENV) {
     case 'testing':
         module.exports = require('./config/webpack/webpack.test');
         break;
+    case 'mock':
     case 'development':
         module.exports = require('./config/webpack/webpack.dev');
         break;
     default:
-        throw new Error('You should add correct NODE_ENV');
+        throw new Error('You should use correct NODE_ENV');
 }

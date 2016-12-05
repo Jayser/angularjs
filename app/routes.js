@@ -6,9 +6,9 @@ export default ($locationProvider, $stateProvider, $urlRouterProvider) => {
             url: '/',
             component: 'homeScreen'
         })
-        .state('test', {
-            url: '/test',
-            component: 'test'
+        .state('header', {
+            url: '/header',
+            component: 'header'
         })
         .state('test2', {
             url: '/test2',

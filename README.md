@@ -1,19 +1,11 @@
 # AngularJS App!
 
-## Installation
-
-```
-npm run prestart
-```
-
-
 ## Development
 
 ```
-npm run server
+npm start
 ```
 This will start dev server on `http://localhost:8000` in the memory.
-
 
 ```
 npm run build:prod
