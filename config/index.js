@@ -4,11 +4,7 @@ const packageJSON = require('../package.json');
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
 const PORT = process.env.PORT || 8000;
-
-let PUBLIC_PATH = 'http://localhost:' + PORT + '/';
-if (NODE_ENV === 'production') {
-    PUBLIC_PATH = './';
-}
+const PUBLIC_PATH = NODE_ENV === 'production' ? './' : 'http://localhost:' + PORT + '/';
 
 const cfg = {
     paths: {
