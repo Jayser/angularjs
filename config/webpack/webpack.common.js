@@ -23,7 +23,7 @@ module.exports = {
     },
     resolve: {
         root: cfgBase.paths.source,
-        extensions: ['', '.jade', '.scss', '.css', '.js']
+        extensions: ['', '.js']
     },
     module: {
         preLoaders: [

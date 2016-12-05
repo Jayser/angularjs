@@ -5,8 +5,7 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "prestart": "npm i -g webpack stylelint && npm i",
-    "server": "better-npm-run server",
+    "start": "better-npm-run server",
     "server:mock": "better-npm-run mock",
     "build:prod": "better-npm-run build:prod",
     "test": "better-npm-run test",
@@ -90,6 +89,7 @@
     "karma-sourcemap-loader": "0.3.7",
     "karma-spec-reporter": "0.0.26",
     "karma-webpack": "1.8.0",
+    "mkdirp": "0.5.1",
     "ng-annotate-loader": "0.2.0",
     "postcss-loader": "1.1.1",
     "precss": "1.4.0",
