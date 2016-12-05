@@ -1,15 +1,17 @@
 const path = require('path');
+
+const mockCfg = require('./mock/mock.config');
 const packageJSON = require('../package.json');
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
 const PORT = process.env.PORT || 8000;
-let PUBLIC_PATH = './';
 
-if (NODE_ENV === 'development') {
-    PUBLIC_PATH = 'http://localhost:' + PORT + '/';
+let PUBLIC_PATH = 'http://localhost:' + PORT + '/';
+if (NODE_ENV === 'production') {
+    PUBLIC_PATH = './';
 }
 
-const base = {
+const cfg = {
     paths: {
         root: path.resolve(),
         source: path.resolve('app'),
@@ -36,9 +38,6 @@ const base = {
         inject: 'body',
         hash: true
     },
-    environments: {
-        mock: 'http://localhost:' + PORT
-    },
     webpackDevServer: {
         publicPath: PUBLIC_PATH,
         historyApiFallback: true,
@@ -58,4 +57,8 @@ const base = {
     pkg: packageJSON
 };
 
-module.exports = base;
+if (cfg.isMock) {
+    cfg.webpackDevServer.setup = mockCfg;
+}
+
+module.exports = cfg;

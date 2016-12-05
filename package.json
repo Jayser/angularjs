@@ -7,7 +7,7 @@
   "scripts": {
     "prestart": "npm i -g webpack stylelint && npm i",
     "server": "better-npm-run server",
-    "server:mock": "better-npm-run server:mock",
+    "server:mock": "better-npm-run mock",
     "build:prod": "better-npm-run build:prod",
     "test": "better-npm-run test",
     "stylint": "stylelint app/**/*.scss --config config/stylelint/.stylelintrc",
@@ -22,11 +22,10 @@
         "PORT": 8000
       }
     },
-    "server:mock": {
+    "mock": {
       "command": "node server.js",
       "env": {
-        "NODE_ENV": "mock",
-        "PORT": 8010
+        "NODE_ENV": "mock"
       }
     },
     "build:prod": {
@@ -40,7 +39,7 @@
       "command": "karma start ./config/karma/karma.conf.js",
       "env": {
         "NODE_ENV": "test",
-        "PORT": 8008
+        "PORT": 8010
       }
     },
     "analyze": {
@@ -70,6 +69,7 @@
     "babel-runtime": "6.18.0",
     "better-npm-run": "0.0.13",
     "clean-webpack-plugin": "0.1.14",
+    "concurrently": "3.1.0",
     "css-loader": "0.26.0",
     "eslint": "3.10.2",
     "eslint-config-angular": "0.5.0",
