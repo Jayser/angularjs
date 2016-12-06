@@ -8,6 +8,11 @@ npm start
 This will start dev server on `http://localhost:8000` in the memory.
 
 ```
+npm run mock
+```
+This will start dev server on `http://localhost:8000` in the memory and mock all http request according to `app/data/mock`.
+
+```
 npm run build:prod
 ```
 This will build production version and put in the build folder
@@ -18,14 +23,14 @@ npm test
 This will check tests
 
 ```
-npm run lint
-```
-This will check javascript on defects  
-
-```
 npm run stylint
 ```
 This will check stylesheets on defects  
+
+npm run lint
+```
+This will check javascript on defects  
+```
 
 ```
 npm run analyze
@@ -46,9 +51,6 @@ This will create `reports/webpack-stats.json` file for [analyse](https://webpack
 * run `lint`, `stylint`, `test` tasks
 * Commit msg should match: <type>: <subject>
 
-
-| if they have some errors 
-| the commit will be failed
 
 ## [Types](http://npm.im/commitizen)
 * feat - A new feature

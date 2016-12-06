@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "start": "better-npm-run server",
-    "server:mock": "better-npm-run mock",
+    "mock": "better-npm-run mock",
     "build:prod": "better-npm-run build:prod",
     "test": "better-npm-run test",
     "stylint": "stylelint app/**/*.scss --config config/stylelint/.stylelintrc",
@@ -24,7 +24,8 @@
     "mock": {
       "command": "node server.js",
       "env": {
-        "NODE_ENV": "mock"
+        "NODE_ENV": "mock",
+        "PORT": 8000
       }
     },
     "build:prod": {
