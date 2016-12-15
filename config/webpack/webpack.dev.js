@@ -16,8 +16,13 @@ const cfg = webpackMerge(commonWebpackCfg, {
     module: {
         loaders: [
             {
-                test: /\.(css|scss)$/,
-                loader: ExtractTextPlugin.extract("style", ["css", "resolve-url", "postcss"])
+                test: /\.scss$/,
+                include: cfgBase.paths.source,
+                loader: ExtractTextPlugin.extract("style", ["css", "resolve-url", "sass?sourceMap"])
+            },
+            {
+                test: /\.css/,
+                loader: ExtractTextPlugin.extract("style", ["css", "postcss"])
             }
         ]
     },

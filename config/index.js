@@ -12,6 +12,7 @@ const cfg = {
         source: resolve('app'),
         output: resolve('build'),
         reports: resolve('reports'),
+        nodeModules: resolve('node_modules'),
         coverage: resolve('reports/coverage'),
         babel: resolve('config/babel/.babelrc'),
         eslint: resolve('config/eslint/.eslintrc'),

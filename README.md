@@ -74,6 +74,7 @@ This will create `reports/webpack-stats.json` file for [analyse](https://webpack
 * [jade](https://pugjs.org/api/migration-v2.html)
 * [uui](https://uui.epam.com)
 * [component](https://docs.angularjs.org/guide/component)
+* [UI Bootstrap](http://angular-ui.github.io/bootstrap/)
 
 ## Technologies & Tools
 

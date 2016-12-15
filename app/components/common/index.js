@@ -1,8 +1,10 @@
-import TestModule2 from './test2';
+import CounterModule from './counter';
+import DropdownModule from './dropdown';
 
 export default angular
     .module('app.components.common', [
-        TestModule2
+        CounterModule,
+        DropdownModule
     ])
     .name;
 

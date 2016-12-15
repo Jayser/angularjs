@@ -3,13 +3,11 @@ header-component
 nav
     ul
         li
-            a(ui-sref='home') home
+            a(ui-sref='home') Home
         li
-            a(ui-sref='header') Component
-        li
-            a(ui-sref='test2') Common component
+            a(ui-sref='styleguide') Bootstrap components
 
-main(ng-transclude)
+main(class="base-screen", ng-transclude)
     ='inherited content'
 
 footer

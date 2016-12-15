@@ -1,0 +1,14 @@
+.btn-group(uib-dropdown='', is-open='status.isopen')
+  button#single-button.btn.btn-primary(type='button', uib-dropdown-toggle='', ng-disabled='disabled')
+    | Button dropdown
+    span.caret
+  ul.dropdown-menu(uib-dropdown-menu='', role='menu', aria-labelledby='single-button')
+    li(role='menuitem')
+      a(href='#') Action
+    li(role='menuitem')
+      a(href='#') Another action
+    li(role='menuitem')
+      a(href='#') Something else here
+    li.divider
+    li(role='menuitem')
+      a(href='#') Separated link

@@ -6,13 +6,9 @@ export default ($locationProvider, $stateProvider, $urlRouterProvider) => {
             url: '/',
             component: 'homeScreen'
         })
-        .state('header', {
-            url: '/header',
-            component: 'header'
-        })
-        .state('test2', {
-            url: '/test2',
-            component: 'test2'
+        .state('styleguide', {
+            url: '/styleguide',
+            component: 'styleGuideScreen'
         });
 
     $urlRouterProvider.otherwise('/');
