@@ -1,10 +1,5 @@
-import template from "./about.template.jade";
+import template from "./about.jade";
 
 export default {
-    template: template(),
-    controller: class AboutComponent{
-        constructor(){}
-
-        $onInit(){}
-    }
+    template: template()
 }

@@ -1,4 +1,4 @@
-import template from "./navbar.template.jade";
+import template from "./navbar.jade";
 
 export default {
     template: template()
