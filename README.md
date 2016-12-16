@@ -51,6 +51,8 @@ This will create `reports/webpack-stats.json` file for [analyse](https://webpack
 * run `lint`, `stylint`, `test` tasks
 * Commit msg should match: <type>: <subject>
 
+| feat: some feature msg
+
 
 ## [Types](http://npm.im/commitizen)
 * feat - A new feature
