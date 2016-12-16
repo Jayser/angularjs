@@ -4,11 +4,11 @@ export default {
     template: template(),
     controller: class Counter {
         constructor() {
-            this.counter = 0;
+            this.amount = 0;
         }
 
         increment() {
-            this.counter++;
+            this.amount++;
         }
     }
 };
