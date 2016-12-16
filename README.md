@@ -1,4 +1,5 @@
 # AngularJS App!
+The main goal of this app it's self improvement at AngularJS.
 
 ## Development
 ```
