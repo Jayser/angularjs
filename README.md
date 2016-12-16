@@ -97,5 +97,8 @@ This will create `reports/webpack-stats.json` file for [analyse](https://webpack
 * [Sergiy Gurko](https://github.com/DStereo)
 * [Oleg Rovenskyi](https://github.com/OlegRovenskyi)
 
+## Improvements
+* TODO.md - file for improvements 
+
 ## License
 MIT - do anything with the code, but don't blame me if it does not work.

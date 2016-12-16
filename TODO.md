@@ -3,3 +3,6 @@
 
 ## JS
 * nested route
+
+## Automation
+* separate coverage & tests
