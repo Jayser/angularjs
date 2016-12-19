@@ -1,14 +1,8 @@
 header-component
 
-nav
-    ul
-        li
-            a(ui-sref='home') Home
-        li
-            a(ui-sref='styleguide') Bootstrap components
+navbar-component
 
-main(class="base-screen", ng-transclude)
+main(class="container base-screen", ng-transclude)
     ='inherited content'
 
-footer
-    | footer
+footer-component

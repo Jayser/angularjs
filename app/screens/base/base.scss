@@ -1,4 +1,8 @@
 .base-screen {
-  margin: 0 auto;
-  width: 400px;
+  margin-bottom: 60px;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
 }
