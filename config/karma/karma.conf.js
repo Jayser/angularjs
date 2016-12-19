@@ -1,6 +1,10 @@
 const webpackTestCfg = require('../webpack/webpack.test');
 const cfgBase = require('../index');
 
+function karmaMerge(baseCfg, extCfg) {
+    return cfgBase.isCoverage ? baseCfg.concat(extCfg) : baseCfg;
+}
+
 module.exports = function (config) {
     config.set({
         // base path used to resolve all patterns
@@ -14,17 +18,15 @@ module.exports = function (config) {
         browsers: ['PhantomJS'],
 
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-        reporters: ['spec', 'coverage'],
+        reporters: karmaMerge(['spec'], ['coverage']),
 
-        plugins: [
+        plugins: karmaMerge([
             'karma-jasmine',
-            'karma-chrome-launcher',
             'karma-phantomjs-launcher',
             'karma-sourcemap-loader',
             'karma-webpack',
-            'karma-coverage',
-            'karma-spec-reporter'
-        ],
+            'karma-spec-reporter'],
+            ['karma-coverage']),
 
         // list of files/patterns to load in the browser
         files: [cfgBase.paths.tests],
@@ -32,7 +34,7 @@ module.exports = function (config) {
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
-            [cfgBase.paths.tests]: ['webpack', 'coverage']
+            [cfgBase.paths.tests]: ['webpack', 'sourcemap']
         },
 
         // Webpack Config at ./webpack/test.js
@@ -59,9 +61,9 @@ module.exports = function (config) {
         logLevel: config.LOG_INFO,
 
         // toggle whether to watch files and rerun tests upon incurring changes
-        autoWatch: true,
+        autoWatch: cfgBase.isTestWatch,
 
         // if true, Karma runs tests once and exits
-        singleRun: true
+        singleRun: !cfgBase.isTestWatch
     });
 };

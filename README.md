@@ -10,7 +10,7 @@ This will start dev server on `http://localhost:8000` in the memory.
 ```
 npm run mock
 ```
-This will start dev server on `http://localhost:8000` in the memory and mock all http request according to `app/data/mock`.
+This will start dev server on `http://localhost:8005` in the memory and mock all http request according to `app/data/mock`.
 
 ```
 npm run build:prod
@@ -23,14 +23,33 @@ npm test
 This will check tests
 
 ```
+npm run test:watch
+```
+This will check tests in live mode
+
+```
+npm run coverage
+```
+This will build coverage in the `reports/coverage` folder.
+> exclude some matches
+
+```
+"exclude": [
+  "**/*.spec.js",
+  "**/*.module.js",
+  "**/index.js"
+]
+```
+
+```
 npm run stylint
 ```
 This will check stylesheets on defects  
 
+```
 npm run lint
 ```
 This will check javascript on defects  
-```
 
 ```
 npm run analyze
@@ -81,9 +100,9 @@ This will create `reports/webpack-stats.json` file for [analyse](https://webpack
 * postcss
 * stylelint
 * font-awesome
-* angularJS/UI Router
+* AngularJS/UI Router/UI Bootstrap
 * babel/latest/stage-0
-* jasmine/karma
+* jasmine/karma/coverage
 * eslint
 * webpack
 

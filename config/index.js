@@ -1,7 +1,5 @@
 const resolve = require('path').resolve;
 
-const packageJSON = require('../package.json');
-
 const NODE_ENV = process.env.NODE_ENV || 'development';
 const PORT = process.env.PORT || 8000;
 const PUBLIC_PATH = NODE_ENV === 'production' ? './' : 'http://localhost:' + PORT + '/';
@@ -19,7 +17,7 @@ const cfg = {
         testWebpackConfig: resolve('config/webpack/test'),
         postCss: resolve('config/postcss/postcss.config.js'),
         mocks: resolve('app/data/mocks'),
-        tests: '**/*.spec.js',
+        tests: resolve('config/karma/index.js'),
         img: './img',
         fonts: './fonts'
     },
@@ -29,7 +27,7 @@ const cfg = {
         failOnError: false,
     },
     htmlWebpackPlugin: {
-        title: packageJSON.name,
+        title: 'AngularJS',
         template: 'index.jade',
         favicon: 'favicon.ico',
         inject: 'body',
@@ -51,7 +49,8 @@ const cfg = {
     isDevelop: NODE_ENV === 'development',
     isProd: NODE_ENV === 'production',
     isMock: NODE_ENV === 'mock',
-    pkg: packageJSON
+    isCoverage: NODE_ENV === 'test:coverage',
+    isTestWatch: NODE_ENV === 'test:watch',
 };
 
 module.exports = cfg;

@@ -1,24 +1,21 @@
-const webpackMerge = require('webpack-merge');
-const webpackValidator = require('webpack-validator');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
-const commonWebpackCfg = require('./webpack.common');
 const cfgBase = require('../index');
 
-const cfg = webpackMerge(commonWebpackCfg, {
+module.exports = {
     module: {
         loaders: [
             {
-                test: /\.scss$/,
-                include: cfgBase.paths.source,
-                loader: ExtractTextPlugin.extract("style", ["css", "resolve-url", "sass?sourceMap"])
+                test: /\.jade$/,
+                loader: 'pug'
             },
             {
-                test: /\.css/,
-                loader: ExtractTextPlugin.extract("style", ["css", "postcss"])
+                test: /\.js$/,
+                include: [cfgBase.paths.source],
+                loaders: ['babel?extends=' + cfgBase.paths.babel]
+            },
+            {
+                test: /\.(?:scss|css)$/,
+                loader: 'ignore'
             }
         ]
     }
-});
-
-module.exports = webpackValidator(cfg);
+};

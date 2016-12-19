@@ -10,6 +10,6 @@ describe('Counter', () => {
 
     it('should be increase', () => {
         sut.increment();
-        expect(sut.amount).toEqual(1)
+        expect(sut.amount).toEqual(1);
     });
-})
+});

@@ -1,4 +1,25 @@
 {
-  "presets": ["latest", "stage-0"],
-  "plugins": ["transform-runtime"]
+  "presets": [
+    "latest",
+    "stage-0"
+  ],
+  "plugins": [
+    "transform-runtime"
+  ],
+  "env": {
+    "test:coverage": {
+      "plugins": [
+        [
+          "istanbul",
+          {
+            "exclude": [
+              "**/*.spec.js",
+              "**/*.module.js",
+              "**/index.js"
+            ]
+          }
+        ]
+      ]
+    }
+  }
 }

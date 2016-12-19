@@ -12,8 +12,7 @@ module.exports = {
         app: ['./index.js'],
         vendor: [
             'angular',
-            'angular-ui-router',
-            'angular-mocks'
+            'angular-ui-router'
         ]
     },
     output: {

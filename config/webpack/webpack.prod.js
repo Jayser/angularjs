@@ -12,11 +12,10 @@ const cfg = webpackMerge(commonWebpackCfg, {
         loaders: [
             {
                 test: /\.scss$/,
-                include: cfgBase.paths.nodeModules,
                 loader: ExtractTextPlugin.extract("style", ["css?minimize&sourceMap", "resolve-url", "sass?sourceMap"])
             },
             {
-                test: /\.(css|scss)/,
+                test: /\.css/,
                 loader: ExtractTextPlugin.extract("style", ["css?minimize&sourceMap", "postcss"])
             }
         ]
