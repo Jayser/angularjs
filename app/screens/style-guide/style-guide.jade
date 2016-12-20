@@ -1,6 +1,11 @@
-base-screen
+base-screen.style-guide
   h2.text-center='Bootstrap components'
-  div.row
-    div.col-md-6.col-md-offset-3
-      counter
-      dropdown
+  .row
+    .col-md-12.text-center
+      .btn-group
+        a.btn.btn-default(ui-sref="styleguide.counter" ui-sref-active="active")="Counter"
+        a.btn.btn-default(ui-sref="styleguide.dropdown" ui-sref-active="active")="Dropdown"
+        a.btn.btn-default(ui-sref="styleguide.datepicker" ui-sref-active="active")="Datepicker"
+  .row.style-guide__nested_wrapper
+    .col-md-6.col-md-offset-3
+      ui-view
