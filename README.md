@@ -37,7 +37,8 @@ This will build coverage in the `reports/coverage` folder.
 "exclude": [
   "**/*.spec.js",
   "**/*.module.js",
-  "**/index.js"
+  "**/index.js",
+  "**/*routes.js"
 ]
 ```
 

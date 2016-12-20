@@ -15,7 +15,8 @@
             "exclude": [
               "**/*.spec.js",
               "**/*.module.js",
-              "**/index.js"
+              "**/index.js",
+              "**/*routes.js"
             ]
           }
         ]
