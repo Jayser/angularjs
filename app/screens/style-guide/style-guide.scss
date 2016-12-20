@@ -1,3 +1,7 @@
 .style-guide {
   color: black;
+
+  &__nested_wrapper {
+    padding-top: 10px;
+  }
 }
