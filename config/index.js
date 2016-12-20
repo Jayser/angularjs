@@ -22,7 +22,7 @@ const cfg = {
         fonts: './fonts'
     },
     styleLintPlugin: {
-        configFile: resolve('config/stylelint/.stylelintrc'),
+        configFile: resolve('.stylelintrc'),
         files: ['../app/**/*.scss'],
         failOnError: false,
     },
