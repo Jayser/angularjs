@@ -1,4 +1,4 @@
-export default ($stateProvider) => {
+export default ($stateProvider, $urlRouterProvider) => {
     'ngInject';
 
     $stateProvider
@@ -14,4 +14,6 @@ export default ($stateProvider) => {
             url: '/datepicker',
             component: 'datepicker'
         });
+
+    $urlRouterProvider.otherwise('/styleguide');
 }
