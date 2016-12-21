@@ -1,0 +1,5 @@
+blog-item-short(
+  ng-repeat-start="blog in $ctrl.blogs"
+  blog-data="blog"
+)
+hr(ng-if="!$last" ng-repeat-end)

@@ -1,0 +1,4 @@
+p(ng-if="!$ctrl.isLoaded")="loading..."
+
+div(ng-if="$ctrl.isLoaded")
+  blog-list(blogs="$ctrl.blogs")

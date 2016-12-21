@@ -1,0 +1,15 @@
+blog-list(blogs='$ctrl.blogs')
+.row.text-center
+  ul(uib-pagination
+    boundary-links="true"
+    boundary-link-numbers="true"
+    items-per-page="$ctrl.itemsPerPage"
+    ng-disabled="$ctrl.disabled"
+    ng-model="$ctrl.currentPage"
+    previous-text="<"
+    first-text="<<"
+    next-text=">"
+    last-text=">>"
+    max-size="5"
+    ng-change="$ctrl.onPageChanged()"
+    total-items="$ctrl.totalItems")
