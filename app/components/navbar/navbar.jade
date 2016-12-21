@@ -13,5 +13,7 @@ nav.navbar.navbar-default
                     a(ui-sref='home') Home
                 li(ui-sref-active='active')
                     a(ui-sref='about') About
+                li(ng-class="{active: $ctrl.state.includes('blog')}")
+                    a(ui-sref='blog.list({page: 1})') Blogs
                 li(ui-sref-active='active')
                     a(ui-sref='styleguide') Bootstrap components
