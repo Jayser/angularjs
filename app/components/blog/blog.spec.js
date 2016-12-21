@@ -19,10 +19,10 @@ describe('BlogFilter', () => {
         expect(filteredSting.lastIndexOf('...')).toBe(150);
     });
 
-    it('shouldn\'t add \'...\' when string length is less then 150', () => {
+    it('should return the same string when its length is less then 150', () => {
         testString = new Array(100).join('a');
         let filteredSting = sut(testString);
-        expect(filteredSting.lastIndexOf('...')).toBe(-1);
+        expect(filteredSting).toEqual(testString)
     });
 
     it('should return undefined if no arguments provided', () => {
