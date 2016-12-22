@@ -1,4 +1,7 @@
 p(ng-if="!$ctrl.isLoaded")="loading..."
 
 div(ng-if="$ctrl.isLoaded")
-  blog-list(blogs="$ctrl.blogs")
+  blog-list-pagination(
+    disabled="$ctrl.disabled"
+    page-data="$ctrl.blogData"
+    on-page-change="$ctrl.fetchBlogs($event)")

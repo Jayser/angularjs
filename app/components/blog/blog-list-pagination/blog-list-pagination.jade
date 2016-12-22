@@ -1,11 +1,12 @@
-blog-list(blogs='$ctrl.blogs')
+div(ng-class="{'blog-list__disabled': $ctrl.disabled}")
+  blog-list(blogs='$ctrl.pageData.posts')
 .row.text-center
   ul(uib-pagination
     boundary-links="true"
     boundary-link-numbers="true"
     items-per-page="$ctrl.itemsPerPage"
     ng-disabled="$ctrl.disabled"
-    ng-model="$ctrl.currentPage"
+    ng-model="$ctrl.pageData.currentPage"
     previous-text="<"
     first-text="<<"
     next-text=">"

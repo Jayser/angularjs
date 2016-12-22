@@ -3,13 +3,9 @@ export default ($stateProvider, $urlRouterProvider) => {
 
     $stateProvider
         .state('blog.list', {
-            url: '/list/:page',
-            component: "blogListPagination",
-            resolve: {
-                blogPages: ["BlogService", "$stateParams",
-                    (BlogService, $stateParams) => BlogService.getAll($stateParams.page || 1)
-                ]
-            }
+            url: '/list?page',
+            component: "blog",
+            reloadOnSearch: false
         })
         .state('blog.view', {
             url: "/view/:blogId",
