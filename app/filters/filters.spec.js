@@ -1,11 +1,11 @@
-import {shotFilter as BlogFilter} from "./blog.filter";
+import cutFilter from "./cut.filter";
 
-describe('BlogFilter', () => {
+describe('cutFilter', () => {
     let testString,
         sut;
 
     beforeEach(() => {
-        sut = new BlogFilter();
+        sut = new cutFilter();
         testString = new Array(1000).join('a');
     });
 
