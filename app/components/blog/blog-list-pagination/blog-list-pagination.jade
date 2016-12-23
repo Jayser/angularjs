@@ -12,5 +12,5 @@ div(ng-class="{'blog-list__disabled': $ctrl.disabled}")
     next-text=">"
     last-text=">>"
     max-size="5"
-    ng-change="$ctrl.onPageChanged()"
+    ng-change="$ctrl.onPageChange({page: $ctrl.pageData.currentPage})"
     total-items="$ctrl.totalItems")

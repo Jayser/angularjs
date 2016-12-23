@@ -10,30 +10,22 @@ export default {
         }
 
         $onInit() {
-            console.log('blog component initialized');
-            let page = this.$state.params.page || 1;
-            this.isLoaded = false;
-            this.BlogService.getAll(page)
-                .then(data => this.blogData = data)
-                .finally(() => this.isLoaded = true)
+            console.info('blog component initialized');
+            this.fetchBlogList(this.$state.params.page);
         }
 
-        fetchBlogs({page}) {
+        fetchBlogList(page, reload) {
             this.disabled = true;
             this.BlogService.getAll(page)
-                .then(data => {
+                .then((data) => {
                     this.blogData = data;
-                    this.reloadState(page);
+                    if(reload) this.reloadState(page)
                 })
                 .finally(() => this.disabled = false)
         }
 
         reloadState(page) {
-            this.$state.transitionTo(
-                this.$state.current.name,
-                angular.extend(this.$state.params, {page}),
-                {notify: false}
-            )
+            this.$state.transitionTo(this.$state.current.name, angular.extend(this.$state.params, {page}))
         }
     }
 }

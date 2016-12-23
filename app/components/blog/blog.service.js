@@ -1,6 +1,8 @@
 export class BlogService {
+    // TODO: move to services folder
+
     constructor($http) {
-        'ngInject;'
+        'ngInject';
         this.$http = $http;
         this.API_URL = "https://sarhan-blog.herokuapp.com";
     }

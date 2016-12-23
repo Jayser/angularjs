@@ -3,9 +3,14 @@ export default ($stateProvider, $urlRouterProvider) => {
 
     $stateProvider
         .state('blog.list', {
-            url: '/list?page',
+            url: '/list/:page',
             component: "blog",
-            reloadOnSearch: false
+            params: {
+                page: {
+                    dynamic: true,
+                    value: "1"
+                }
+            }
         })
         .state('blog.view', {
             url: "/view/:blogId",

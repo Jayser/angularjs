@@ -21,13 +21,5 @@ export default {
                 this.disabled = changes.disabled.currentValue
             }
         }
-
-        onPageChanged() {
-            this.onPageChange({
-                $event: {
-                    page: this.pageData.currentPage
-                }
-            });
-        }
     }
 }
