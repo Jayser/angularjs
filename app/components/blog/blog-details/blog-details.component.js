@@ -1,5 +1,5 @@
-import template from './blog-item.jade';
-import "./blog-item.scss";
+import template from './blog-details.jade';
+import "./blog-details.scss";
 
 export default {
     template: template(),

@@ -1,6 +1,0 @@
-.blog-item-short
-  h3
-    a(ui-sref="blog.view({blogId:$ctrl.blogData._id})")="{{::$ctrl.blogData.title}}"
-  p.blog-item__meta="{{::$ctrl.blogData.date | date:'yyyy-MM-dd HH:mm'}} by "
-    a()="{{::$ctrl.blogData.author.name}}"
-  p="{{::$ctrl.blogData.description | shortBlog}}"

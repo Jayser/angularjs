@@ -10,17 +10,19 @@ export default {
         }
 
         $onInit() {
-            console.info('blog component initialized');
+            console.info('blog component initialized', this.$state.params.page);
             this.fetchBlogList(this.$state.params.page);
         }
 
-        fetchBlogList(page, reload) {
+        fetchBlogList(page) {
+            return this.BlogService.getAll(page)
+                .then((data) => this.blogData = data)
+        }
+
+        fetchAndReload(page){
             this.disabled = true;
-            this.BlogService.getAll(page)
-                .then((data) => {
-                    this.blogData = data;
-                    if(reload) this.reloadState(page)
-                })
+            this.fetchBlogList(page)
+                .then(() => this.reloadState(page))
                 .finally(() => this.disabled = false)
         }
 
