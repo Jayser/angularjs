@@ -1,10 +1,10 @@
 .blog-details.row
   .col-md-12
-    h2.text-center.text-capitalize="{{::$ctrl.blogData.title}}"
-    p.blog-details__meta.pull-right="{{::$ctrl.blogData.date | date:'yyyy-MM-dd HH:mm'}} by "
-      a()="{{::$ctrl.blogData.author.name}}"
+    h2.text-center.text-capitalize="{{$ctrl.blogData.title}}"
+    p.blog-details__meta.pull-right="{{$ctrl.blogData.date | date:'yyyy-MM-dd HH:mm'}} by "
+      a()="{{$ctrl.blogData.author.name}}"
   .col-md-12
-    p.blog-details__description="{{::$ctrl.blogData.description}}"
+    p.blog-details__description="{{$ctrl.blogData.description}}"
   .col-md-12(ng-if="$ctrl.blogData.comments.length")
     hr
-    p="comments ({{::$ctrl.blogData.comments.length}})"
+    p="comments ({{$ctrl.blogData.comments.length}})"
