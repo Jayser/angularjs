@@ -1,8 +1,8 @@
-import BaseScreen from './base';
-import HomeScreen from './home';
-import StyleGuideScreen from './style-guide';
-import AboutScreen from './about';
-import BlogScreen from './blog';
+import BaseScreen from './base-screen';
+import HomeScreen from './home-screen';
+import StyleGuideScreen from './style-guide-screen';
+import AboutScreen from './about-screen';
+import BlogScreen from './blog-screen';
 
 export default angular
     .module('app.screens', [

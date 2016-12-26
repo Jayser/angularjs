@@ -1,5 +1,5 @@
-import BlogScreenComponent from "./blog.component";
-import routes from "./blog.routes";
+import BlogScreenComponent from "./blog-screen.component";
+import routes from "./blog-screen.routes";
 
 export default angular
     .module('app.screens.blog', [])

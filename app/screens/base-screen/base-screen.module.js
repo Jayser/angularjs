@@ -1,5 +1,5 @@
-import BaseComponent from './base.component';
-import './base.scss';
+import BaseComponent from './base-screen.component';
+import './base-screen.scss';
 
 export default angular
     .module('app.screens.base', [])
