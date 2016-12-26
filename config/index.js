@@ -16,7 +16,7 @@ const cfg = {
         eslint: resolve('config/eslint/.eslintrc'),
         testWebpackConfig: resolve('config/webpack/test'),
         postCss: resolve('config/postcss/postcss.config.js'),
-        mocks: resolve('app/data/mocks'),
+        mocks: resolve('app/mocks'),
         tests: resolve('config/karma/index.js'),
         img: './img',
         fonts: './fonts'

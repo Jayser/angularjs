@@ -5,7 +5,7 @@ export default {
     transclude: true,
     controller: class IsAuthorized {
         constructor(AuthService) {
-            'njInclude';
+            'ngInclude';
 
             this.AuthService = AuthService;
         }

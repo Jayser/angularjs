@@ -21,19 +21,16 @@ describe('auth-drop-down component', () => {
 
     it('Should show content is user authorized', () => {
         AuthService.isAuthorized.and.returnValue(true);
-
         expect(sut.isAuthorized()).toBe(true);
     });
 
     it('Should hide content is user unauthorized', () => {
         AuthService.isAuthorized.and.returnValue(false);
-
         expect(sut.isAuthorized()).toBe(false);
     });
 
     it('should have logout', () => {
         sut.logout();
-
         expect(AuthService.logout).toHaveBeenCalled();
     });
 });
