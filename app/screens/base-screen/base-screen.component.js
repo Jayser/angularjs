@@ -1,4 +1,4 @@
-import template from './base.jade';
+import template from './base-screen.jade';
 
 export default {
     template: template(),

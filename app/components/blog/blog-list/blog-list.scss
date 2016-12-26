@@ -1,0 +1,9 @@
+.blog-list {
+  &__disabled {
+    opacity: 0.5;
+  }
+
+  &__item__meta {
+    color: #999;
+  }
+}

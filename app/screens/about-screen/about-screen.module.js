@@ -1,4 +1,4 @@
-import AboutComponent from './about.component';
+import AboutComponent from './about-screen.component';
 
 export default angular
     .module('app.screens.about', [])

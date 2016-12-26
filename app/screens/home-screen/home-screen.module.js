@@ -1,5 +1,5 @@
-import HomeComponent from './home.component';
-import './home.scss';
+import HomeComponent from './home-screen.component';
+import './home-screen.scss';
 
 export default angular
     .module('app.screens.home', [])
