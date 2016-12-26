@@ -1,4 +1,4 @@
-import template from './style-guide.jade';
+import template from './home-screen.jade';
 
 export default {
     template: template()

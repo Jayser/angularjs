@@ -10,6 +10,10 @@ export default ($locationProvider, $stateProvider, $urlRouterProvider) => {
             url: "/about",
             component: 'aboutScreen'
         })
+        .state('blog', {
+            url: "/blog",
+            component: "blogScreen"
+        })
         .state('style-guide', {
             url: '/style-guide',
             component: 'styleGuideScreen'
