@@ -1,0 +1,25 @@
+.login-wrapper
+  form.form-signin(name="loginForm", ng-submit='$ctrl.submitForm(loginForm)', role='loginForm')
+      h2.form-signin__heading Please login
+      input.form-control.form-signin__login(
+        type='text',
+        name='username',
+        placeholder='Email Address',
+        ng-class="{ 'has-error': loginForm.username.$dirty && loginForm.username.$error.required }",
+        ng-model='$ctrl.username',
+        ng-minlength="5"
+        required,
+        autofocus
+      )
+      input.form-control.form-signin__pass(
+        type='password',
+        name='password',
+        placeholder='Password',
+        ng-model='$ctrl.password',
+        ng-class="{ 'has-error': loginForm.password.$dirty && loginForm.password.$error.required }"
+        required
+      )
+      button.btn.btn-lg.btn-primary.btn-block(
+        type='submit',
+        ng-disabled='loginForm.$invalid'
+      )='Login'

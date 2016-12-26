@@ -11,7 +11,7 @@
     "test": "better-npm-run run:test",
     "test:watch": "better-npm-run test:watch",
     "coverage": "better-npm-run coverage",
-    "stylint": "stylelint app/**/*.scss --config config/stylelint/.stylelintrc",
+    "stylint": "stylelint app/**/*.scss --config .stylelintrc",
     "lint": "eslint app --config=config/eslint/.eslintrc",
     "analyze": "better-npm-run analyze"
   },
@@ -76,6 +76,7 @@
   },
   "homepage": "https://github.com/Jayser/angularjs#readme",
   "devDependencies": {
+    "angular-cookies": "1.6.0",
     "angular-mocks": "1.5.9",
     "autoprefixer": "6.5.3",
     "babel-core": "6.18.2",

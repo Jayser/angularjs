@@ -21,6 +21,13 @@ const cfg = {
         img: './img',
         fonts: './fonts'
     },
+    proxy: {
+        '/api': {
+            target: 'http://sarhan-blog.herokuapp.com',
+            secure: false,
+            changeOrigin: true
+        }
+    },
     styleLintPlugin: {
         configFile: resolve('.stylelintrc'),
         files: ['../app/**/*.scss'],

@@ -6,6 +6,10 @@ const mockCfg = require('./config/mock/mock.config');
 const cfgBase = require('./config');
 let webpackDevServer = cfgBase.webpackDevServer;
 
+// set proxy config
+webpackDevServer.proxy = cfgBase.proxy;
+
+// setup mocks
 if (cfgBase.isMock) {
     webpackDevServer.setup = mockCfg;
 }

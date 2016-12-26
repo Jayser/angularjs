@@ -1,0 +1,12 @@
+ul.navbar-nav.nav(ng-if="$ctrl.isAuthorized()")
+    li.dropdown.navbar-dropdown(uib-dropdown)
+      a.dropdown-toggle(href='#', uib-dropdown-toggle, is-open='status.isopen')
+        | {{ $ctrl.user.name }}
+        span.caret
+      ul.dropdown-menu(uib-dropdown-menu)
+        li
+          a(href='#', ng-click='$ctrl.logout()') Logout
+
+ul.navbar-nav.nav(ng-if="!$ctrl.isAuthorized()")
+  li(ui-sref-active='active')
+    a(ui-sref='login') Log In

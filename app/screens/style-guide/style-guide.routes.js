@@ -2,18 +2,18 @@ export default ($stateProvider, $urlRouterProvider) => {
     'ngInject';
 
     $stateProvider
-        .state('styleguide.counter', {
+        .state('style-guide.counter', {
             url: '/counter',
             component: 'counter'
         })
-        .state('styleguide.dropdown', {
-            url: '/dropdown',
-            component: 'dropdown'
+        .state('style-guide.drop-down', {
+            url: '/drop-down',
+            component: 'dropDown'
         })
-        .state('styleguide.datepicker', {
-            url: '/datepicker',
-            component: 'datepicker'
+        .state('style-guide.date-picker', {
+            url: '/date-picker',
+            component: 'datePicker'
         });
 
-    $urlRouterProvider.otherwise('/styleguide');
+    $urlRouterProvider.otherwise('/style-guide');
 }

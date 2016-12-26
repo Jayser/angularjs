@@ -1,11 +1,11 @@
-import HeaderModule from './header'
-import FooterModule from './footer'
-import NavbarModule from './navbar'
+import LoginModule from './login';
+import LayoutModule from './layout';
+import AuthDropDownModule from './auth-drop-down';
 
 export default angular
     .module('app.components', [
-        HeaderModule,
-        FooterModule,
-        NavbarModule
+        AuthDropDownModule,
+        LayoutModule,
+        LoginModule
     ])
     .name;

@@ -1,0 +1,23 @@
+nav.navbar-default
+    .container
+        .navbar-header
+            a.navbar-brand(ui-sref="home")="Angular App"
+        .collapse.navbar-collapse
+            ul.navbar-nav.nav
+                li(ui-sref-active='active')
+                    a(ui-sref='home') Home
+                li(ui-sref-active='active')
+                    a(ui-sref='about') About
+                li.dropdown.navbar-dropdown(uib-dropdown, ng-class="{active: $ctrl.$state.includes('styleguide')}")
+                  a.dropdown-toggle(href='#', uib-dropdown-toggle, is-open='status.isopen')
+                    | Bootstrap
+                    span.caret
+                  ul.dropdown-menu(uib-dropdown-menu)
+                    li(ui-sref-active='active')
+                      a(ui-sref='style-guide.counter') Counter
+                    li(ui-sref-active='active')
+                      a(ui-sref='style-guide.drop-down') Dropdown
+                    li(ui-sref-active='active')
+                      a(ui-sref='style-guide.date-picker') Datepicker
+            .navbar-right
+              auth-drop-down

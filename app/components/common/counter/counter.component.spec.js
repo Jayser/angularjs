@@ -1,10 +1,9 @@
-import Counter from './counter.component';
+import CounterComponent from './counter.component';
 
-let sut;
+describe('Counter component', () => {
+    const sut = new CounterComponent.controller();
 
-describe('Counter', () => {
     beforeEach(() => {
-        sut = new Counter.controller();
         sut.amount = 0;
     });
 

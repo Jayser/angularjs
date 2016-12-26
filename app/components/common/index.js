@@ -1,12 +1,14 @@
+import IsAuthorizedModule from './is-authorized';
 import CounterModule from './counter';
-import DropdownModule from './dropdown';
-import DatepickerModule from './datepicker';
+import DropDownModule from './drop-down';
+import DatePickerModule from './date-picker';
 
 export default angular
     .module('app.components.common', [
+        IsAuthorizedModule,
         CounterModule,
-        DropdownModule,
-        DatepickerModule
+        DropDownModule,
+        DatePickerModule
     ])
     .name;
 
