@@ -16,6 +16,8 @@
               "**/*.spec.js",
               "**/*.module.js",
               "**/index.js",
+              "**/app.config.js",
+              "**/app.routes.controller.js",
               "**/*routes.js"
             ]
           }

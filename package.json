@@ -76,6 +76,7 @@
   },
   "homepage": "https://github.com/Jayser/angularjs#readme",
   "devDependencies": {
+    "angular-cookies": "1.6.0",
     "angular-mocks": "1.5.9",
     "autoprefixer": "6.5.3",
     "babel-core": "6.18.2",

@@ -9,10 +9,11 @@ const cfgBase = require('../index');
 module.exports = {
     context: cfgBase.paths.source,
     entry: {
-        app: ['./index.js'],
+        app: ['./app.module.js'],
         vendor: [
             'angular',
-            'angular-ui-router'
+            'angular-ui-router',
+            'angular-cookies'
         ]
     },
     output: {

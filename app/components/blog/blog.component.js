@@ -5,6 +5,7 @@ export default {
     controller: class Blog {
         constructor($state, BlogService) {
             'ngInject';
+
             this.BlogService = BlogService;
             this.$state = $state;
             this.currentPage = this.$state.params.page;
