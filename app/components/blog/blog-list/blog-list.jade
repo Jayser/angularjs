@@ -1,8 +1,7 @@
-.blog-list__item(ng-repeat-start="blog in $ctrl.blogs")
+.blog-list__item(ng-repeat="blog in $ctrl.blogs")
   h3
     a(ui-sref="blog.view({blogId: blog._id})")="{{blog.title}}"
   p.blog-list__item__meta="{{blog.date | date:'yyyy-MM-dd HH:mm'}} by "
     a="{{blog.author.name}}"
   p="{{blog.description | cut:120}}"
-
-hr(ng-if="!$last" ng-repeat-end)
+  hr(ng-if="!$last")

@@ -3,36 +3,36 @@ import template from "./blog.jade";
 export default {
     template: template(),
     controller: class Blog {
+
         constructor($state, BlogService) {
             'ngInject';
-
             this.BlogService = BlogService;
             this.$state = $state;
-            this.currentPage = this.$state.params.page;
-            this.itemsPerPage = 5;
-            this.posts = [];
         }
 
         $onInit() {
-            this.loading = true;
+            this.currentPage = this.$state.params.page;
+            this.itemsPerPage = 5;
+            this.posts = [];
             this.fetchBlogList()
-                .finally(() => this.loading = false)
+        }
+
+        onBlogDataReceived(data) {
+            this.totalItems = this.itemsPerPage * data.pages;
+            this.currentPage = data.currentPage;
+            this.posts = data.posts;
         }
 
         fetchBlogList() {
+            this.loading = true;
             return this.BlogService.getAll(this.currentPage)
-                .then((data) => {
-                    this.totalItems = this.itemsPerPage * data.pages;
-                    this.currentPage = data.currentPage;
-                    this.posts = data.posts;
-                })
+                .then(this.onBlogDataReceived.bind(this))
+                .finally(() => this.loading = false)
         }
 
         fetchAndReload() {
-            this.disabled = true;
             this.fetchBlogList()
-                .then(() => this.reloadState())
-                .finally(() => this.disabled = false)
+                .then(this.reloadState.bind(this))
         }
 
         reloadState() {

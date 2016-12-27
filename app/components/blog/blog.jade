@@ -1,11 +1,12 @@
-.alert.alert-info(ng-if="$ctrl.loading")="Loading..."
+.alert.alert-info(ng-if="$ctrl.loading && !$ctrl.posts.length")="Loading..."
 .alert.alert-warning(ng-if="!$ctrl.loading && !$ctrl.posts.length")="Oops! Looks like there are no posts..."
 
-div(ng-if="!$ctrl.loading && $ctrl.posts.length" ng-class="{'blog-list__disabled': $ctrl.disabled}")
+div(ng-if="$ctrl.posts.length" ng-class="{'blog-list__disabled': $ctrl.loading}")
   blog-list(blogs='$ctrl.posts')
   .row.text-center
-    ul(uib-pagination
-      ng-disabled="$ctrl.disabled"
+    ul(
+      uib-pagination
+      ng-disabled="$ctrl.loading"
       boundary-links="true"
       boundary-link-numbers="true"
       items-per-page="$ctrl.itemsPerPage"
@@ -16,4 +17,5 @@ div(ng-if="!$ctrl.loading && $ctrl.posts.length" ng-class="{'blog-list__disabled
       next-text=">"
       last-text=">>"
       max-size="5"
-      ng-change="$ctrl.fetchAndReload()")
+      ng-change="$ctrl.fetchAndReload()"
+    )
