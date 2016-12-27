@@ -1,6 +1,7 @@
 export default {
     URLS: {
-        LOGIN: '/api/auth/login'
+        LOGIN: '/api/auth/login',
+        POSTS: '/api/posts'
     },
     COOKIES: {
       AUTH: 'authorization.data'
