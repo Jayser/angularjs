@@ -1,0 +1,30 @@
+// Todo: copy paste from example
+// it's should be refactor to BEM way
+
+.tabs {
+  margin: 25px;
+  background: #fff;
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border-bottom: 1px solid #eee;
+
+    li {
+      float: left;
+
+      a {
+        color: #444;
+        display: block;
+        text-decoration: none;
+        padding: 10px 20px;
+      }
+    }
+  }
+
+  &__content {
+    padding: 10px;
+  }
+}

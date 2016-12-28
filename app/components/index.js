@@ -1,6 +1,7 @@
 import LoginModule from './login';
 import LayoutModule from './layout';
 import BlogModule from './blog';
+import TabsModule from './tabs';
 import AuthDropDownModule from './auth-drop-down';
 
 export default angular
@@ -8,6 +9,7 @@ export default angular
         AuthDropDownModule,
         BlogModule,
         LayoutModule,
-        LoginModule
+        LoginModule,
+        TabsModule
     ])
     .name;

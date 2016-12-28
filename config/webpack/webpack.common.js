@@ -62,16 +62,6 @@ module.exports = {
         new CleanWebpackPlugin([cfgBase.paths.output, cfgBase.paths.reports], {
             root: cfgBase.paths.root
         }),
-        new Webpack.optimize.CommonsChunkPlugin({
-            name: "app",
-            minChunks: 3,
-            chunks: ["app"],
-        }),
-        new Webpack.optimize.CommonsChunkPlugin({
-            name: "vendor",
-            minChunks: 3,
-            chunks: ["vendor"],
-        }),
         new require('force-case-sensitivity-webpack-plugin'),
         new Webpack.NoErrorsPlugin(),
         new Webpack.DefinePlugin({
