@@ -14,6 +14,7 @@ describe('Tab', () => {
             selected: false
         };
 
-       expect(sut.tab).toEqual(result);
+        expect(sut.tabs.addTab).toHaveBeenCalled();
+        expect(sut.tab).toEqual(result);
     });
 });
