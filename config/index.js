@@ -3,21 +3,22 @@ const resolve = require('path').resolve;
 const NODE_ENV = process.env.NODE_ENV || 'development';
 const PORT = process.env.PORT || 8000;
 const PUBLIC_PATH = NODE_ENV === 'production' ? './' : 'http://localhost:' + PORT + '/';
+const root = resolve();
 
 const cfg = {
     paths: {
-        root: resolve(),
-        source: resolve('app'),
-        output: resolve('build'),
-        reports: resolve('reports'),
-        nodeModules: resolve('node_modules'),
-        coverage: resolve('reports/coverage'),
-        babel: resolve('config/babel/.babelrc'),
-        eslint: resolve('config/eslint/.eslintrc'),
-        testWebpackConfig: resolve('config/webpack/test'),
-        postCss: resolve('config/postcss/postcss.config.js'),
-        mocks: resolve('app/mocks'),
-        tests: resolve('config/karma/index.js'),
+        root: root,
+        source: `${root}/app`,
+        output: `${root}/build`,
+        reports: `${root}/reports`,
+        nodeModules: `${root}/node_modules`,
+        coverage: `${root}/reports/coverage`,
+        babel: `${root}/config/babel/.babelrc`,
+        eslint: `${root}/config/eslint/.eslintrc`,
+        testWebpackConfig: `${root}/config/webpack/test`,
+        postCss: `${root}/config/postcss/postcss.config.js`,
+        mocks: `${root}/app/mocks`,
+        tests: `${root}/config/karma/index.js`,
         img: './img',
         fonts: './fonts'
     },
@@ -29,7 +30,7 @@ const cfg = {
         }
     },
     styleLintPlugin: {
-        configFile: resolve('.stylelintrc'),
+        configFile: `${root}/.stylelintrc`,
         files: ['../app/**/*.scss'],
         failOnError: false,
     },

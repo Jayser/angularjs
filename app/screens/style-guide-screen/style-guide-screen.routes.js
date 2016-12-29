@@ -13,6 +13,26 @@ export default ($stateProvider, $urlRouterProvider) => {
         .state('style-guide.date-picker', {
             url: '/date-picker',
             component: 'datePicker'
+        })
+        .state('style-guide.lazy-load', {
+            url: '/lazy-load',
+            component: 'lazyLoad',
+            resolvePolicy: { deps: { when: "EAGER" } },
+            resolve: {
+                deps: ['$q', '$ocLazyLoad', ($q, $ocLazyLoad) => {
+                    const dfd = $q.defer();
+
+                    require.ensure([], () => {
+                        const moduleName = require('../../components/lazy-load/lazy-load.module').default;
+
+                        $ocLazyLoad.load({ name: moduleName });
+
+                        dfd.resolve(moduleName);
+                    });
+
+                    return dfd.promise;
+                }]
+            }
         });
 
     $urlRouterProvider.otherwise('/style-guide');

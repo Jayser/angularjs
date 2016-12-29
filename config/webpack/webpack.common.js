@@ -13,7 +13,8 @@ module.exports = {
         vendor: [
             'angular',
             'angular-ui-router',
-            'angular-cookies'
+            'angular-cookies',
+            'oclazyload'
         ]
     },
     output: {
@@ -27,11 +28,11 @@ module.exports = {
     },
     module: {
         preLoaders: [
-            {
+           /* {
                 test: /\.js$/,
                 loader: 'eslint',
                 include: [cfgBase.paths.source]
-            }
+            }*/
         ],
         loaders: [
             {
