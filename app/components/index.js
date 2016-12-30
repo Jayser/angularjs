@@ -3,6 +3,7 @@ import LayoutModule from './layout';
 import BlogModule from './blog';
 import TabsModule from './tabs';
 import AuthDropDownModule from './auth-drop-down';
+import BindingsModule from './bindings';
 
 export default angular
     .module('app.components', [
@@ -10,6 +11,7 @@ export default angular
         BlogModule,
         LayoutModule,
         LoginModule,
-        TabsModule
+        TabsModule,
+        BindingsModule
     ])
     .name;

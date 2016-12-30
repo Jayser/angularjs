@@ -1,0 +1,12 @@
+.bindings__parent
+  p
+    strong="parent: "
+    button.btn.btn-default.btn-xs(ng-click="$ctrl.increment()")="increase"
+    button.btn.btn-default.btn-xs(ng-click="$ctrl.togglePrimitive()")="toggle primitive"
+  p
+    code.
+      counter: {{$ctrl.obj}}
+    code.
+      primitive: {{$ctrl.primitive}}
+
+bindings-child(obj="$ctrl.obj" primitive="$ctrl.primitive" on-update="$ctrl.update(event)")

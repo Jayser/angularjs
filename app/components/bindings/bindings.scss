@@ -1,0 +1,17 @@
+.bindings {
+  button,
+  code {
+    margin-right: 3px;
+  }
+
+  &__parent {
+    border-left: 3px solid gray;
+    padding-left: 10px;
+  }
+
+  &__child {
+    border-left: 3px solid darkgrey;
+    padding-left: 10px;
+    margin-left: 20px;
+  }
+}
