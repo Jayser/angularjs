@@ -28,11 +28,11 @@ module.exports = {
     },
     module: {
         preLoaders: [
-           /* {
+            {
                 test: /\.js$/,
                 loader: 'eslint',
                 include: [cfgBase.paths.source]
-            }*/
+            }
         ],
         loaders: [
             {
@@ -76,14 +76,14 @@ module.exports = {
         new require('force-case-sensitivity-webpack-plugin'),
         new Webpack.NoErrorsPlugin(),
         new Webpack.DefinePlugin({
-            IS_DEVELOPMENT: cfgBase.isDevelop,
-            IS_PROD: cfgBase.isProd,
-            IS_MOCK: cfgBase.isMock
+            IS_DEVELOPMENT: cfgBase.env.isDevelop,
+            IS_PROD: cfgBase.env.isProd,
+            IS_MOCK: cfgBase.env.isMock
         }),
         new StyleLintPlugin(cfgBase.styleLintPlugin),
-        new ExtractTextPlugin("css/main.css", { disable: cfgBase.isDevelop }),
+        new ExtractTextPlugin("css/main.css", {disable: cfgBase.env.isDevelop}),
         new HtmlWebpackPlugin(cfgBase.htmlWebpackPlugin)
     ],
-    eslint: { configFile: cfgBase.paths.eslint },
+    eslint: {configFile: cfgBase.paths.eslint},
     devtool: 'inline-source-map'
 };

@@ -53,12 +53,14 @@ const cfg = {
     },
     publicPath: PUBLIC_PATH,
     port: PORT,
-    env: NODE_ENV,
-    isDevelop: NODE_ENV === 'development',
-    isProd: NODE_ENV === 'production',
-    isMock: NODE_ENV === 'mock',
-    isCoverage: NODE_ENV === 'test:coverage',
-    isTestWatch: NODE_ENV === 'test:watch',
+    env: {
+        NODE_ENV: NODE_ENV,
+        isDevelop: NODE_ENV === 'development',
+        isProd: NODE_ENV === 'production',
+        isMock: NODE_ENV === 'mock',
+        isCoverage: NODE_ENV === 'test:coverage',
+        isTestWatch: NODE_ENV === 'test:watch',
+    }
 };
 
 module.exports = cfg;

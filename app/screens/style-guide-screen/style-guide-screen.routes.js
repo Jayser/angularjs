@@ -1,3 +1,5 @@
+import { lazyLoadCounter } from './style-guide-screen.lazy-load-routes';
+
 export default ($stateProvider, $urlRouterProvider) => {
     'ngInject';
 
@@ -14,25 +16,15 @@ export default ($stateProvider, $urlRouterProvider) => {
             url: '/date-picker',
             component: 'datePicker'
         })
-        .state('style-guide.lazy-load', {
-            url: '/lazy-load',
-            component: 'lazyLoad',
+        .state('style-guide.lazy-load-counter', {
+            url: '/lazy-load-counter',
+            component: 'lazyLoadCounter',
+            /*
+             * resolvePolicy property should be for lazy loading.
+             * resolvePolicy change order try to execute deps as initial propery
+             */
             resolvePolicy: { deps: { when: "EAGER" } },
-            resolve: {
-                deps: ['$q', '$ocLazyLoad', ($q, $ocLazyLoad) => {
-                    const dfd = $q.defer();
-
-                    require.ensure([], () => {
-                        const moduleName = require('../../components/lazy-load/lazy-load.module').default;
-
-                        $ocLazyLoad.load({ name: moduleName });
-
-                        dfd.resolve(moduleName);
-                    });
-
-                    return dfd.promise;
-                }]
-            }
+            resolve: { deps: lazyLoadCounter }
         });
 
     $urlRouterProvider.otherwise('/style-guide');

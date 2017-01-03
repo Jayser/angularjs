@@ -1,7 +1,7 @@
-import LazyLoadComponent from './lazy-load.component';
+import LazyLoadCounterComponent from './lazy-load-counter.component';
 
 describe('LL Counter component', () => {
-    const sut = new LazyLoadComponent.controller();
+    const sut = new LazyLoadCounterComponent.controller();
 
     beforeEach(() => {
         sut.amount = 0;

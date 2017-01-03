@@ -1,8 +1,8 @@
-import template from './lazy-load.jade';
+import template from './lazy-load-counter.jade';
 
 export default {
     template: template(),
-    controller: class LazyLoad {
+    controller: class LazyLoadCounter {
         constructor() {
             this.amount = 0;
         }
