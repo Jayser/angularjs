@@ -27,11 +27,11 @@ module.exports = {
     },
     module: {
         preLoaders: [
-            /*{
+            {
                 test: /\.js$/,
                 loader: 'eslint',
                 include: [cfgBase.paths.source]
-            }*/
+            }
         ],
         loaders: [
             {
