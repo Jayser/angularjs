@@ -1,4 +1,5 @@
 import BlogComponent from './blog.component';
+import BlogDetailsComponent from './blog-details';
 
 describe('blog component', () => {
     const defaultPageNum = 1;
@@ -120,4 +121,27 @@ describe('blog component', () => {
             expect(sut.$state.transitionTo).toHaveBeenCalledWith(defaultStateName, {page: defaultPageNum});
         })
     })
+});
+
+describe('blog-details component', () => {
+    // const blogId = "123123123";
+    let BlogService;
+    let promise;
+    let sut;
+
+    beforeEach(()=> {
+        BlogService = jasmine.createSpyObj('BlogService', ['getById']);
+        promise = jasmine.createSpyObj('promise', ['then', 'finally']);
+
+        sut = new BlogDetailsComponent.controller(BlogService);
+        sut.BlogService.getById.and.returnValue(promise);
+        // promise.then.and.callFake()
+    });
+
+  /*  it('should fetch blog data by provided id', ()=> {
+        sut.blogId = blogId;
+        sut.$onInit();
+
+        expect(sut.BlogService.getById).toHaveBeenCalledWith(blogId)
+    })*/
 });

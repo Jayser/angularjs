@@ -1,3 +1,5 @@
+.alert.alert-info(ng-if="$ctrl.loading")
+  | Loading...
 .blog-details.row
   .col-md-12
     h2.text-center.text-capitalize="{{$ctrl.blogData.title}}"

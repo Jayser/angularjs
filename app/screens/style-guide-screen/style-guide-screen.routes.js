@@ -17,6 +17,10 @@ export default ($stateProvider, $urlRouterProvider) => {
         .state('style-guide.tabs', {
             url: '/tabs',
             component: 'tabsTest'
+        })
+        .state('style-guide.bindings', {
+            url: '/bindings',
+            component: 'bindings'
         });
 
     $urlRouterProvider.otherwise('/style-guide');

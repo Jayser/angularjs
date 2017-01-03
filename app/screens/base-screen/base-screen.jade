@@ -1,7 +1,8 @@
 navbar-component
 
 main(
-    class="base-screen container-fluid",
+    class="base-screen",
+    ng-class="{'container': !$ctrl.fullScreen}"
     ng-transclude
 )='inherited content'
 

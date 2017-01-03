@@ -8,7 +8,7 @@ nav.navbar-default
                     a(ui-sref='home') Home
                 li(ui-sref-active='active')
                     a(ui-sref='about') About
-                li.dropdown.navbar-dropdown(uib-dropdown, ng-class="{active: $ctrl.$state.includes('styleguide')}")
+                li.dropdown.navbar-dropdown(uib-dropdown, ng-class="{active: $ctrl.$state.includes('style-guide')}")
                   a.dropdown-toggle(href='#', uib-dropdown-toggle, is-open='status.isopen')
                     | StyleGuide
                     span.caret
@@ -21,6 +21,8 @@ nav.navbar-default
                       a(ui-sref='style-guide.date-picker') Datepicker
                     li(ui-sref-active='active')
                       a(ui-sref='style-guide.tabs') Tabs
+                    li(ui-sref-active='active')
+                      a(ui-sref='style-guide.bindings') Bindings
                 li(ui-sref-active='active')
                   a(ui-sref='blog.list') Blog
             .navbar-right

@@ -10,16 +10,14 @@ export default {
     controller: class Child {
         constructor(){}
 
-        $onInit(){
-            console.log(`data from bindings this.obj:` , this.obj);
-            console.log(`data from bindings this.primitive:` , this.primitive);
-        }
+        $onInit(){}
 
         $onChanges(changes){
-            console.info(changes)
-          /*  if(changes.obj){
-                // this.obj = angular.copy(changes.obj.currentValue)
-            }*/
+            console.log("child: on change",changes);
+             // /****    (!) uncomment lines bellow to fix 1-way data binding    ****/
+             /*if(changes.obj){
+                   this.obj = angular.copy(changes.obj.currentValue)
+             }*/
         }
 
         increment(){

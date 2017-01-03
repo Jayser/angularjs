@@ -4,6 +4,7 @@
       a(
         href='#',
         ng-bind='tab.label',
+        ng-class="{'tabs__active-tab': tab.selected}"
         ng-click='$ctrl.selectTab($index);'
       )
   .tabs__content(ng-transclude)
