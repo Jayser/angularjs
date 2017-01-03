@@ -124,24 +124,44 @@ describe('blog component', () => {
 });
 
 describe('blog-details component', () => {
-    // const blogId = "123123123";
+    const blogId = "123123123";
+    const blogData = {_id: blogId};
     let BlogService;
     let promise;
     let sut;
 
-    beforeEach(()=> {
+    function applyFakeData(cb) {
+        cb(blogData);
+        return this;
+    }
+
+    beforeEach(() => {
         BlogService = jasmine.createSpyObj('BlogService', ['getById']);
         promise = jasmine.createSpyObj('promise', ['then', 'finally']);
-
         sut = new BlogDetailsComponent.controller(BlogService);
+
         sut.BlogService.getById.and.returnValue(promise);
-        // promise.then.and.callFake()
+        promise.then.and.callFake(applyFakeData);
+        promise.finally.and.callFake(cb => cb());
     });
 
-  /*  it('should fetch blog data by provided id', ()=> {
-        sut.blogId = blogId;
-        sut.$onInit();
+    describe('$onInit', () => {
+        beforeEach(()=>{
+            sut.blogId = blogId;
+            sut.$onInit();
+        });
 
-        expect(sut.BlogService.getById).toHaveBeenCalledWith(blogId)
-    })*/
+        it('should fetch blog data with proper blog-id parameter', () => {
+            expect(sut.BlogService.getById).toHaveBeenCalledWith(blogId)
+        });
+
+        it('should populate blogData when data is received', () => {
+            expect(sut.blogData).toEqual(blogData)
+        });
+
+        it('should set loading state to false when data is loaded', () => {
+            expect(sut.loading).toEqual(false)
+        });
+    });
+
 });
