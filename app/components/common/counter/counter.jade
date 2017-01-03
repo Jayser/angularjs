@@ -3,3 +3,4 @@ h4 Counter
     {{$ctrl.amount}}
   button.btn.btn-primary(type='button', ng-click='$ctrl.increment()')
     | increase
+  lazy-load-counter(ng-if="$ctrl.lazyLoadCounter")

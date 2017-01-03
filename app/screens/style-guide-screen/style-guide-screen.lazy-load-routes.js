@@ -1,13 +1,7 @@
-export const lazyLoadCounter = ['$q', '$ocLazyLoad', ($q, $ocLazyLoad) => {
-    const dfd = $q.defer();
+import lazyLoadCounterComponent from '../../components/lazy-load-counter/lazy-load-counter.lazy-load-export';
 
-    require.ensure([], () => {
-        const moduleName = require('../../components/lazy-load-counter/lazy-load-counter.module').default;
+export const lazyLoadCounter = LazyLoadService => {
+    'ngInject';
 
-        $ocLazyLoad.load({ name: moduleName });
-
-        dfd.resolve(moduleName);
-    });
-
-    return dfd.promise;
-}];
+    return LazyLoadService.load(lazyLoadCounterComponent);
+};

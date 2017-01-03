@@ -25,7 +25,7 @@ export default ($stateProvider, $urlRouterProvider) => {
             component: 'lazyLoadCounter',
             /*
              * resolvePolicy property should be for lazy loading.
-             * resolvePolicy change order try to execute deps as initial propery
+             * resolvePolicy change order try to execute deps as initial property
              */
             resolvePolicy: { deps: { when: "EAGER" } },
             resolve: { deps: lazyLoadCounter }

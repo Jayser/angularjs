@@ -1,24 +1,25 @@
-const resolve = require('path').resolve;
+const path = require('path');
+const normalize = path.normalize;
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
 const PORT = process.env.PORT || 8000;
-const PUBLIC_PATH = NODE_ENV === 'production' ? './' : 'http://localhost:' + PORT + '/';
-const root = resolve();
+const PUBLIC_PATH = NODE_ENV === 'production' ? '/angularjs/build/' : 'http://localhost:' + PORT + '/';
+const root = path.resolve(__dirname, '../');
 
 const cfg = {
     paths: {
         root: root,
-        source: `${root}/app`,
-        output: `${root}/build`,
-        reports: `${root}/reports`,
-        nodeModules: `${root}/node_modules`,
-        coverage: `${root}/reports/coverage`,
-        babel: `${root}/config/babel/.babelrc`,
-        eslint: `${root}/config/eslint/.eslintrc`,
-        testWebpackConfig: `${root}/config/webpack/test`,
-        postCss: `${root}/config/postcss/postcss.config.js`,
-        mocks: `${root}/app/mocks`,
-        tests: `${root}/config/karma/index.js`,
+        source: normalize(`${root}/app`),
+        output: normalize(`${root}/build`),
+        reports: normalize(`${root}/reports`),
+        nodeModules: normalize(`${root}/node_modules`),
+        coverage: normalize(`${root}/reports/coverage`),
+        babel: normalize(`${root}/config/babel/.babelrc`),
+        eslint: normalize(`${root}/config/eslint/.eslintrc`),
+        testWebpackConfig: normalize(`${root}/config/webpack/test`),
+        postCss: normalize(`${root}/config/postcss/postcss.config.js`),
+        mocks: normalize(`${root}/app/mocks`),
+        tests: normalize(`${root}/config/karma/index.js`),
         img: './img',
         fonts: './fonts'
     },
@@ -30,7 +31,7 @@ const cfg = {
         }
     },
     styleLintPlugin: {
-        configFile: `${root}/.stylelintrc`,
+        configFile: normalize(`${root}/.stylelintrc`),
         files: ['../app/**/*.scss'],
         failOnError: false,
     },

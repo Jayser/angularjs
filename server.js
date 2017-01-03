@@ -25,5 +25,6 @@ server.listen(cfgBase.port, err => {
     }
 
     //open("http://localhost:" + webpackCfg.devServer.port + "/index.html");
-    console.log('Listening at localhost:'  + cfgBase.port);
+    console.log(`Run mode: ${process.env.NODE_ENV}`);
+    console.log(`Listening at localhost: ${cfgBase.port}`);
 });
