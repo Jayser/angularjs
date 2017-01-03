@@ -10,7 +10,7 @@ nav.navbar-default
                     a(ui-sref='about') About
                 li.dropdown.navbar-dropdown(uib-dropdown, ng-class="{active: $ctrl.$state.includes('styleguide')}")
                   a.dropdown-toggle(href='#', uib-dropdown-toggle, is-open='status.isopen')
-                    | Bootstrap
+                    | StyleGuide
                     span.caret
                   ul.dropdown-menu(uib-dropdown-menu)
                     li(ui-sref-active='active')
@@ -19,6 +19,8 @@ nav.navbar-default
                       a(ui-sref='style-guide.drop-down') Dropdown
                     li(ui-sref-active='active')
                       a(ui-sref='style-guide.date-picker') Datepicker
+                    li(ui-sref-active='active')
+                      a(ui-sref='style-guide.tabs') Tabs
                     li(ui-sref-active='active')
                       a(ui-sref='style-guide.lazy-load-counter') Lazy Load Counter
                 li(ui-sref-active='active')

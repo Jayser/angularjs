@@ -16,6 +16,10 @@ export default ($stateProvider, $urlRouterProvider) => {
             url: '/date-picker',
             component: 'datePicker'
         })
+        .state('style-guide.tabs', {
+            url: '/tabs',
+            component: 'tabsTest'
+        })
         .state('style-guide.lazy-load-counter', {
             url: '/lazy-load-counter',
             component: 'lazyLoadCounter',

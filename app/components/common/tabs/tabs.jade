@@ -1,0 +1,9 @@
+.tabs
+  ul.tabs__list
+    li(ng-repeat='tab in $ctrl.tabs')
+      a(
+        href='#',
+        ng-bind='tab.label',
+        ng-click='$ctrl.selectTab($index);'
+      )
+  .tabs__content(ng-transclude)
