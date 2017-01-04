@@ -4,6 +4,7 @@ import BlogModule from './blog';
 import TabsModule from './tabs';
 import AuthDropDownModule from './auth-drop-down';
 import BindingsModule from './bindings';
+import SharingDataModule from './sharing-data';
 
 export default angular
     .module('app.components', [
@@ -12,6 +13,7 @@ export default angular
         LayoutModule,
         LoginModule,
         TabsModule,
-        BindingsModule
+        BindingsModule,
+        SharingDataModule
     ])
     .name;

@@ -1,0 +1,7 @@
+ul(ng-repeat="todo in $ctrl.todoList")
+  li="{{todo}}"
+
+form(name="form", ng-submit="$ctrl.addTodo({ todoField: $ctrl.todoField })")
+  input(type='text', name="todoField", ng-model="$ctrl.todoField", required, autofocus)
+  button(type="button", ng-click="$ctrl.clear()")="clear"
+  button(type="submit", ng-disabled='form.$invalid')="Add todo"

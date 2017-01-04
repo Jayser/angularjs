@@ -2,15 +2,15 @@ import IsAuthorizedModule from './is-authorized';
 import CounterModule from './counter';
 import DropDownModule from './drop-down';
 import DatePickerModule from './date-picker';
-// import TabsModule from './tabs';
+import TodoModule from './todo';
 
 export default angular
-    .module('app.components.common', [
+    .module('app.common', [
         IsAuthorizedModule,
         CounterModule,
         DropDownModule,
         DatePickerModule,
-        // TabsModule
+        TodoModule
     ])
     .name;
 

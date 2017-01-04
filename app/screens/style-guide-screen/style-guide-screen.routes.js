@@ -20,6 +20,10 @@ export default ($stateProvider, $urlRouterProvider) => {
             url: '/bindings',
             component: 'bindings'
         })
+        .state('style-guide.sharing-data', {
+            url: '/sharing-data',
+            component: 'sharingData'
+        })
         .state('style-guide.tabs', {
             url: '/tabs',
             component: 'tabsTest',

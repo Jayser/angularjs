@@ -1,5 +1,5 @@
 import template from './counter.jade';
-import LazyLoadCounter from '../../lazy-load-counter/lazy-load-counter.lazy-load-export';
+import LazyLoadCounter from '../../components/lazy-load-counter/lazy-load-counter.lazy-load-export';
 
 export default {
     template: template(),
