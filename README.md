@@ -108,6 +108,7 @@ This will create `reports/webpack-stats.json` file for [analyse](https://webpack
 * jasmine/karma/coverage
 * eslint
 * webpack
+* oclazyload
 
 ## Improvements
 * TODO.md - file for improvements
@@ -120,6 +121,7 @@ This will create `reports/webpack-stats.json` file for [analyse](https://webpack
 * [Sergiy Gurko](https://github.com/DStereo)
 * [Oleg Rovenskyi](https://github.com/OlegRovenskyi)
 * [Alex Podobed](https://github.com/AlexPodobed)
+* [Olha Stoliar](https://github.com/jolich89)
 
 ## License
 MIT - do anything with the code, but don't blame me if it does not work.

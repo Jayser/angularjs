@@ -11,7 +11,7 @@
     "test": "better-npm-run run:test",
     "test:watch": "better-npm-run test:watch",
     "coverage": "better-npm-run coverage",
-    "stylint": "stylelint app/**/*.scss --config .stylelintrc",
+    "stylelint": "stylelint app/**/*.scss --config .stylelintrc",
     "lint": "eslint app --config=config/eslint/.eslintrc",
     "analyze": "better-npm-run analyze"
   },
@@ -114,6 +114,7 @@
     "mkdirp": "0.5.1",
     "ng-annotate-loader": "0.2.0",
     "node-sass": "^4.0.0",
+    "oclazyload": "1.0.9",
     "postcss-loader": "1.1.1",
     "precss": "1.4.0",
     "pug": "2.0.0-beta6",
@@ -140,7 +141,7 @@
   },
   "config": {
     "ghooks": {
-      "pre-commit": "npm run stylint && npm run lint && npm test",
+      "pre-commit": "npm run stylelint && npm run lint && npm test",
       "commit-msg": "validate-commit-msg"
     },
     "validate-commit-msg": {

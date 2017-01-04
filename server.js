@@ -7,7 +7,7 @@ const cfgBase = require('./config');
 let webpackDevServer = cfgBase.webpackDevServer;
 
 // setup mocks
-if (cfgBase.isMock) {
+if (cfgBase.env.isMock) {
     webpackDevServer.setup = mockCfg;
 } else {
     // set proxy config
@@ -25,5 +25,6 @@ server.listen(cfgBase.port, err => {
     }
 
     //open("http://localhost:" + webpackCfg.devServer.port + "/index.html");
-    console.log('Listening at localhost:'  + cfgBase.port);
+    console.log(`Run mode: ${process.env.NODE_ENV}`);
+    console.log(`Listening at localhost: ${cfgBase.port}`);
 });

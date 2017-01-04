@@ -1,23 +1,25 @@
-const resolve = require('path').resolve;
+const path = require('path');
+const normalize = path.normalize;
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
 const PORT = process.env.PORT || 8000;
-const PUBLIC_PATH = NODE_ENV === 'production' ? './' : 'http://localhost:' + PORT + '/';
+const PUBLIC_PATH = NODE_ENV === 'production' ? '/angularjs/build/' : 'http://localhost:' + PORT + '/';
+const root = path.resolve(__dirname, '../');
 
 const cfg = {
     paths: {
-        root: resolve(),
-        source: resolve('app'),
-        output: resolve('build'),
-        reports: resolve('reports'),
-        nodeModules: resolve('node_modules'),
-        coverage: resolve('reports/coverage'),
-        babel: resolve('config/babel/.babelrc'),
-        eslint: resolve('config/eslint/.eslintrc'),
-        testWebpackConfig: resolve('config/webpack/test'),
-        postCss: resolve('config/postcss/postcss.config.js'),
-        mocks: resolve('app/mocks'),
-        tests: resolve('config/karma/index.js'),
+        root: root,
+        source: normalize(`${root}/app`),
+        output: normalize(`${root}/build`),
+        reports: normalize(`${root}/reports`),
+        nodeModules: normalize(`${root}/node_modules`),
+        coverage: normalize(`${root}/reports/coverage`),
+        babel: normalize(`${root}/config/babel/.babelrc`),
+        eslint: normalize(`${root}/config/eslint/.eslintrc`),
+        testWebpackConfig: normalize(`${root}/config/webpack/test`),
+        postCss: normalize(`${root}/config/postcss/postcss.config.js`),
+        mocks: normalize(`${root}/app/mocks`),
+        tests: normalize(`${root}/config/karma/index.js`),
         img: './img',
         fonts: './fonts'
     },
@@ -29,7 +31,7 @@ const cfg = {
         }
     },
     styleLintPlugin: {
-        configFile: resolve('.stylelintrc'),
+        configFile: normalize(`${root}/.stylelintrc`),
         files: ['../app/**/*.scss'],
         failOnError: false,
     },
@@ -52,12 +54,14 @@ const cfg = {
     },
     publicPath: PUBLIC_PATH,
     port: PORT,
-    env: NODE_ENV,
-    isDevelop: NODE_ENV === 'development',
-    isProd: NODE_ENV === 'production',
-    isMock: NODE_ENV === 'mock',
-    isCoverage: NODE_ENV === 'test:coverage',
-    isTestWatch: NODE_ENV === 'test:watch',
+    env: {
+        NODE_ENV: NODE_ENV,
+        isDevelop: NODE_ENV === 'development',
+        isProd: NODE_ENV === 'production',
+        isMock: NODE_ENV === 'mock',
+        isCoverage: NODE_ENV === 'test:coverage',
+        isTestWatch: NODE_ENV === 'test:watch',
+    }
 };
 
 module.exports = cfg;
