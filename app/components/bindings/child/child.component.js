@@ -8,16 +8,11 @@ export default {
         onUpdate: "&"
     },
     controller: class Child {
-        constructor(){}
-
-        $onInit(){}
-
         $onChanges(changes){
-            console.log("child: on change",changes);
-             // /****    (!) uncomment lines bellow to fix 1-way data binding    ****/
-             /*if(changes.obj){
-                   this.obj = angular.copy(changes.obj.currentValue)
-             }*/
+            if (changes.obj) {
+                /**  uncomment lines bellow to fix 1-way data binding */
+                // this.obj = angular.copy(changes.obj.currentValue)
+            }
         }
 
         increment(){
