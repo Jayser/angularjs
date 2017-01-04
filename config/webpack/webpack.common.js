@@ -20,7 +20,8 @@ module.exports = {
     output: {
         path: cfgBase.paths.output,
         publicPath: cfgBase.publicPath,
-        filename: 'js/[name].js?[hash]'
+        filename: 'js/[name].js?[hash]',
+        chunkFilename: 'js/[name].js?[chunkhash]',
     },
     resolve: {
         root: cfgBase.paths.source,
