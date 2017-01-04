@@ -5,7 +5,7 @@ import Constants from './app.constants';
 
 import ServicesModule from './services';
 import FiltersModule from './filters';
-import CommonModule from './components/common';
+import CommonModule from './common';
 import ComponentsModule from './components';
 import ScreensModule from './screens';
 
