@@ -19,7 +19,8 @@ export default angular
         ComponentsModule,
         ScreensModule,
         'ngCookies',
-        'ui.router'
+        'ui.router',
+        'oc.lazyLoad'
     ])
     .controller('RoutesController', AppRoutesController)
     .constant('CONSTANTS', Constants)

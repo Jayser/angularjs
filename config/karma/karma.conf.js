@@ -2,7 +2,7 @@ const webpackTestCfg = require('../webpack/webpack.test');
 const cfgBase = require('../index');
 
 function karmaMerge(baseCfg, extCfg) {
-    return cfgBase.isCoverage ? baseCfg.concat(extCfg) : baseCfg;
+    return cfgBase.env.isCoverage ? baseCfg.concat(extCfg) : baseCfg;
 }
 
 module.exports = function (config) {
@@ -61,9 +61,9 @@ module.exports = function (config) {
         logLevel: config.LOG_INFO,
 
         // toggle whether to watch files and rerun tests upon incurring changes
-        autoWatch: cfgBase.isTestWatch,
+        autoWatch: cfgBase.env.isTestWatch,
 
         // if true, Karma runs tests once and exits
-        singleRun: !cfgBase.isTestWatch
+        singleRun: !cfgBase.env.isTestWatch
     });
 };

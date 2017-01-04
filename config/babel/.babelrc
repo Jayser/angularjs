@@ -13,10 +13,11 @@
           "istanbul",
           {
             "exclude": [
+              "**/index.js",
               "**/*.spec.js",
               "**/*.module.js",
-              "**/index.js",
               "**/app.config.js",
+              "**/*lazy-load.js",
               "**/app.routes.controller.js",
               "**/*routes.js"
             ]
