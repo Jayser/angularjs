@@ -1,4 +1,4 @@
-import { lazyLoadCounter } from './style-guide-screen.lazy-load-routes';
+import { lazyLoadCounter, lazyLoadTabs } from './style-guide-screen.lazy-load-routes';
 
 export default ($stateProvider, $urlRouterProvider) => {
     'ngInject';
@@ -18,7 +18,9 @@ export default ($stateProvider, $urlRouterProvider) => {
         })
         .state('style-guide.tabs', {
             url: '/tabs',
-            component: 'tabsTest'
+            component: 'tabsTest',
+            resolvePolicy: { deps: { when: "EAGER" } },
+            resolve: {deps: lazyLoadTabs}
         })
         .state('style-guide.lazy-load-counter', {
             url: '/lazy-load-counter',

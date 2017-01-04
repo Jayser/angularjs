@@ -1,5 +1,5 @@
 export default cb => {
-    require(['./lazy-load-counter.module'], module => {
+    require(['./tabs.module'], module => {
         cb(module.default);
     });
 };
