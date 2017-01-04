@@ -1,6 +1,9 @@
 navbar-component
 
-main(class="base-screen", ng-transclude)
-    ='inherited content'
+main(
+    class="base-screen",
+    ng-class="{'container': !$ctrl.fullScreen}"
+    ng-transclude
+)='inherited content'
 
 footer-component

@@ -16,9 +16,7 @@ export default ($stateProvider, $urlRouterProvider) => {
             url: "/view/:blogId",
             component: "blogDetails",
             resolve: {
-                blogData: ["BlogService", "$stateParams",
-                    (BlogService, $stateParams) => BlogService.getById($stateParams.blogId)
-                ]
+                blogId: ["$stateParams", ($stateParams) => $stateParams.blogId]
             }
         })
         // only for admin | logged in user

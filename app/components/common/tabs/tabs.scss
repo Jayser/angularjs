@@ -5,6 +5,11 @@
   margin: 25px;
   background: #fff;
 
+  &__active-tab {
+    font-weight: bold;
+    background-color: #eee;
+  }
+
   &__list {
     list-style: none;
     margin: 0;
