@@ -2,10 +2,7 @@
 * validation BEM
 
 ## JS
-* AngularJS Bindings
-* AngularJS toddmoto questions
 * AngularJS make auth and some interesting component base on lunch time
+* AngularJS toddmotto questions
 * AngularJS ask Sergey A. about interesting component
-* PR
-
-## Automation
+* Personal Review
