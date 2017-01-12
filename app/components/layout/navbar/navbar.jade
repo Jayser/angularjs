@@ -6,7 +6,7 @@ nav.navbar-default
             ul.navbar-nav.nav
                 li(ui-sref-active='active')
                     a(ui-sref='home') Home
-                li(ui-sref-active='active')
+                li(ui-sref-active='active', is-authorized)
                     a(ui-sref='about') About
                 li.dropdown.navbar-dropdown(uib-dropdown, ng-class="{active: $ctrl.$state.includes('style-guide')}")
                   a.dropdown-toggle(href='#', uib-dropdown-toggle, is-open='status.isopen')
