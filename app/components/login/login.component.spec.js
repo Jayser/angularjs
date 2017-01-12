@@ -18,7 +18,7 @@ describe('Login', () => {
     });
 
     describe('submit form', () => {
-        const name = 'admin';
+        const email = 'admin@admin.com';
         const password = 'admin';
 
         beforeEach(() => {
@@ -26,16 +26,14 @@ describe('Login', () => {
         });
 
         it('track all passed arguments', () => {
-            AuthService.login(name, password);
-            expect(AuthService.login).toHaveBeenCalledWith('admin', 'admin');
+            AuthService.login(email, password);
+            expect(AuthService.login).toHaveBeenCalledWith('admin@admin.com', 'admin');
         });
 
         it('should submitted form', () => {
             sut.submitForm({ $valid: true });
 
             expect(AuthService.login).toHaveBeenCalled();
-            expect(promise.then).toHaveBeenCalled();
-            expect($state.go).toHaveBeenCalled();
         });
     });
 });

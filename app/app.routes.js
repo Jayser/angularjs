@@ -8,7 +8,10 @@ export default ($locationProvider, $stateProvider, $urlRouterProvider) => {
         })
         .state('about', {
             url: "/about",
-            component: 'aboutScreen'
+            component: 'aboutScreen',
+            permissions: {
+                roles: ['ADMIN']
+            }
         })
         .state('blog', {
             url: "/blog",
@@ -20,9 +23,20 @@ export default ($locationProvider, $stateProvider, $urlRouterProvider) => {
         })
         .state('login', {
             url: '/login',
-            component: 'loginScreen'
+            component: 'loginScreen',
+            permissions: {
+                authRequired: false
+            }
+        })
+        .state('404', {
+            url: '/404',
+            component: 'notFoundScreen'
+        })
+        .state('access-denied', {
+            url: '/access-denied',
+            component: 'accessDeniedScreen'
         });
 
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('404');
     $locationProvider.html5Mode(true).hashPrefix('!');
 };

@@ -3,10 +3,10 @@
       h2.form-signin__heading Please login
       input.form-control.form-signin__login(
         type='text',
-        name='username',
+        name='email',
         placeholder='Email Address',
-        ng-class="{ 'has-error': loginForm.username.$dirty && loginForm.username.$error.required }",
-        ng-model='$ctrl.username',
+        ng-class="{ 'has-error': loginForm.email.$dirty && loginForm.email.$error.required }",
+        ng-model='$ctrl.email',
         ng-minlength="5"
         required,
         autofocus

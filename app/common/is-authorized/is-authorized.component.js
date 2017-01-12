@@ -4,14 +4,14 @@ export default {
     template: template(),
     transclude: true,
     controller: class IsAuthorized {
-        constructor(AuthService) {
+        constructor(IdentityService) {
             'ngInclude';
 
-            this.AuthService = AuthService;
+            this.IdentityService = IdentityService;
         }
 
-        isAuthorized() {
-            return this.AuthService.isAuthorized();
+        isAuthenticated() {
+            return this.IdentityService.isAuthenticated();
         }
     }
 };

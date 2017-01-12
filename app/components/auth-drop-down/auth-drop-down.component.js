@@ -3,18 +3,19 @@ import template from './auth-drop-down.jade';
 export default {
     template: template(),
     controller: class AuthDropDown {
-        constructor(AuthService) {
+        constructor(AuthService, IdentityService) {
             'ngInject';
 
             this.AuthService = AuthService;
+            this.IdentityService = IdentityService;
         }
 
         $onInit() {
-            this.user = this.AuthService.getCurrentUser();
+            this.user = this.IdentityService.getIdentity();
         }
 
-        isAuthorized() {
-            return this.AuthService.isAuthorized();
+        isAuthenticated() {
+            return this.IdentityService.isAuthenticated();
         }
 
         logout() {

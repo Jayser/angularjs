@@ -1,13 +1,11 @@
 export default {
     URLS: {
-        LOGIN: '/api/auth/login',
+        AUTH: '/rest/login',
         POSTS: '/api/posts'
     },
-    COOKIES: {
-      AUTH: 'authorization.data'
+    TOKEN_NAME: 'x-token',
+    SESSION_STORAGE: {
+      AUTH: 'authenticate'
     },
-    EVENTS: {
-        USER_LOGIN: 'userLogin',
-        USER_LOGOUT: 'userLogout'
-    }
+    EVENTS: {}
 };

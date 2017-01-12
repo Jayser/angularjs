@@ -1,21 +1,20 @@
 import IsAuthorizedComponent from './is-authorized.component';
 
 describe('is-authorized component', () => {
-    const AuthService = jasmine.createSpyObj('AuthService', ['isAuthorized']);
-    const sut = new IsAuthorizedComponent.controller(AuthService);
+    const $IdentityService = jasmine.createSpyObj('$IdentityService', ['isAuthenticated']);
+    const sut = new IsAuthorizedComponent.controller($IdentityService);
 
-    it('AuthService should be initialized', () => {
+    it('$IdentityService should be initialized', () => {
         expect(sut.constructor.length).toBe(1);
-        expect(sut.AuthService).toBe(AuthService);
     });
 
     it('Should show content is user authorized', () => {
-        AuthService.isAuthorized.and.returnValue(true);
-        expect(sut.isAuthorized()).toBe(true);
+        $IdentityService.isAuthenticated.and.returnValue(true);
+        expect(sut.isAuthenticated()).toBe(true);
     });
 
     it('Should hide content is user unauthorized', () => {
-        AuthService.isAuthorized.and.returnValue(false);
-        expect(sut.isAuthorized()).toBe(false);
+        $IdentityService.isAuthenticated.and.returnValue(false);
+        expect(sut.isAuthenticated()).toBe(false);
     });
 });

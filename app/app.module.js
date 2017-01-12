@@ -1,6 +1,6 @@
-import AppConfig from './app.config';
-import AppRoutes from './app.routes';
-import AppRoutesController from './app.routes.controller';
+import AppCfg from './app.config';
+import AppRoutesCfg from './app.routes';
+import AppRoutesInterceptorCfg from './app.routes.config';
 import Constants from './app.constants';
 
 import ServicesModule from './services';
@@ -20,10 +20,11 @@ export default angular
         ScreensModule,
         'ngCookies',
         'ui.router',
-        'oc.lazyLoad'
+        'oc.lazyLoad',
+        'ngStorage'
     ])
-    .controller('RoutesController', AppRoutesController)
     .constant('CONSTANTS', Constants)
-    .config(AppConfig)
-    .config(AppRoutes)
+    .config(AppCfg)
+    .config(AppRoutesCfg)
+    .run(AppRoutesInterceptorCfg)
     .name;
