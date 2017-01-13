@@ -1,7 +1,9 @@
 import IsAuthorizedComponent from './is-authorized.controller';
 
 describe('is-authorized component', () => {
+
     let $IdentityService, sut;
+
     beforeEach(() => {
         $IdentityService = jasmine.createSpyObj('$IdentityService', ['isAuthenticated', 'isInAnyRole']);
         sut = new IsAuthorizedComponent($IdentityService);

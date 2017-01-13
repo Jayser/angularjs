@@ -1,7 +1,7 @@
 export default ($rootScope, $transitions, AuthService, IdentityService) => {
     'ngInject';
 
-    // executed once, try to authentication from the cookie
+    // executed once, try to authentication from the sessionStorage
     AuthService.authenticate();
 
     const requiresAuthCriteria = {
@@ -10,14 +10,12 @@ export default ($rootScope, $transitions, AuthService, IdentityService) => {
                 $rootScope.returnToState = state;
             }
 
-            $rootScope.toState = state;
-
             return state.permissions;
         }
     };
 
-    const requiresAuthRedirect = () => {
-        const permissions = $rootScope.toState.permissions;
+    const requiresAuthRedirect = trans => {
+        const permissions = trans.to().permissions;
         const hasRoles = permissions.roles && permissions.roles.length;
         const authRequired = permissions.authRequired;
 

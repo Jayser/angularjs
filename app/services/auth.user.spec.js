@@ -20,7 +20,6 @@ describe('AuthService', () => {
 
     beforeEach(() => {
         IdentityService.identity.and.returnValue(promise);
-        $state.current = null;
     });
 
     it('Should be initialized', () => {
@@ -81,7 +80,7 @@ describe('AuthService', () => {
         sut.logout();
 
         expect(IdentityService.authenticate).toHaveBeenCalledWith(null);
-        expect($state.reload).toHaveBeenCalledWith($state.current);
+        expect($state.reload).toHaveBeenCalledWith();
     });
 
     describe('Login', () => {

@@ -34,6 +34,6 @@ export default class {
 
     logout() {
         this.IdentityService.authenticate(null);
-        this.$state.reload(this.$state.current);
+        this.$state.reload();
     }
 }
