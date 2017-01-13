@@ -37,9 +37,10 @@ This will build coverage in the `reports/coverage` folder.
 "exclude": [
     "**/*.spec.js",
     "**/*.module.js",
+    "**/*lazy-load-export.js"
     "**/index.js",
     "**/app.config.js",
-    "**/app.routes.controller.js",
+    "**/app.routes.config.js",
     "**/*routes.js"
 ]
 ```

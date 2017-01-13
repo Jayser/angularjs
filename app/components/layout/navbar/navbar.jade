@@ -5,9 +5,9 @@ nav.navbar-default
         .collapse.navbar-collapse
             ul.navbar-nav.nav
                 li(ui-sref-active='active')
-                    a(ui-sref='home') Home
-                li(ui-sref-active='active')
-                    a(ui-sref='about') About
+                  a(ui-sref='home') Home
+                li(ui-sref-active='active', is-authorized, is-authenticated="true", is-in-any-role="['ADMIN']")
+                  a(ui-sref='about') About
                 li.dropdown.navbar-dropdown(uib-dropdown, ng-class="{active: $ctrl.$state.includes('style-guide')}")
                   a.dropdown-toggle(href='#', uib-dropdown-toggle, is-open='status.isopen')
                     | StyleGuide

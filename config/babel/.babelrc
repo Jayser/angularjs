@@ -16,6 +16,7 @@
               "**/index.js",
               "**/*.spec.js",
               "**/*.module.js",
+              "**/*lazy-load-export.js",
               "**/app.config.js",
               "**/*lazy-load.js",
               "**/app.routes.controller.js",

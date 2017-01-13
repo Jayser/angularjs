@@ -14,7 +14,8 @@ module.exports = {
             'angular',
             'angular-ui-router',
             'angular-cookies',
-            'oclazyload'
+            'oclazyload',
+            'ngstorage'
         ]
     },
     output: {

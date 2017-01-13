@@ -1,26 +1,39 @@
-export default ($rootScope, $cookies, $http, CONSTANTS) => {
-    'ngInject';
+export default class {
+    constructor($state, $rootScope, $sessionStorage, IdentityService, CONSTANTS) {
+        'ngInject';
 
-    const params = { headers: { 'Content-Type': 'application/json;charset=utf-8' } };
+        this.$state = $state;
+        this.$rootScope = $rootScope;
+        this.IdentityService = IdentityService;
+        this.identity = $sessionStorage[CONSTANTS.SESSION_STORAGE.AUTH];
+    }
 
-    return {
-        login: (name, password) => {
-            return $http.post(CONSTANTS.URLS.LOGIN, { name, password }, params).then(res => {
-                $cookies.put(CONSTANTS.COOKIES.AUTH, angular.toJson(res.data));
-                $rootScope.$emit(CONSTANTS.EVENTS.USER_LOGIN, res.data);
+    _goTo(stateName = 'home') {
+        this.$state.go(stateName);
+    }
 
-                return res;
-            });
-        },
-        logout: () => {
-            $cookies.remove(CONSTANTS.COOKIES.AUTH);
-            $rootScope.$emit(CONSTANTS.EVENTS.USER_LOGOUT);
-        },
-        getCurrentUser() {
-            return angular.fromJson($cookies.get(CONSTANTS.COOKIES.AUTH));
-        },
-        isAuthorized() {
-            return Boolean(this.getCurrentUser());
-        }
+    authenticate() {
+        this.IdentityService.authenticate(angular.fromJson(this.identity));
+    }
+
+    isUnauthenticated() {
+        this._goTo('login');
+    }
+
+    isAccessDenied() {
+         this._goTo('access-denied');
+    }
+
+    returnToState() {
+        this._goTo(this.$rootScope.returnToState && this.$rootScope.returnToState.name);
+    }
+
+    login(email, password) {
+        this.IdentityService.identity(email, password).then(() => this.returnToState());
+    }
+
+    logout() {
+        this.IdentityService.authenticate(null);
+        this.$state.reload();
     }
 }

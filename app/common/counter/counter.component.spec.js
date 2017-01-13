@@ -3,11 +3,17 @@ import CounterComponent from './counter.component';
 describe('Counter component', () => {
     const LazyLoadService = jasmine.createSpyObj('LazyLoadService', ['load']);
     const sut = new CounterComponent.controller(LazyLoadService);
+    const promise = jasmine.createSpyObj('promise', ['then']);
 
-    beforeEach(() => {
-        sut.amount = 0;
-        sut.lazyLoadCounter = false;
-        sut.LazyLoadService = LazyLoadService
+    describe('$onInit', () => {
+        LazyLoadService.load.and.returnValue(promise);
+        promise.then.and.callFake(function (cb) { cb() });
+
+        it('should be loaded dynamic', () => {
+            sut.$onInit();
+
+            expect(sut.lazyLoadCounter).toEqual(true);
+        });
     });
 
     it('should be increase', () => {

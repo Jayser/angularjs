@@ -28,6 +28,11 @@ const cfg = {
             target: 'http://sarhan-blog.herokuapp.com',
             secure: false,
             changeOrigin: true
+        },
+        '/rest': {
+            target: 'http://epuadniw0142t1.kyiv.epam.com',
+            secure: false,
+            changeOrigin: true
         }
     },
     styleLintPlugin: {
@@ -39,8 +44,7 @@ const cfg = {
         title: 'AngularJS',
         template: 'index.jade',
         favicon: 'favicon.ico',
-        inject: 'body',
-        hash: true
+        inject: 'body'
     },
     webpackDevServer: {
         publicPath: PUBLIC_PATH,

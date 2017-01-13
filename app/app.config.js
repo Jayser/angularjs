@@ -1,16 +1,18 @@
-export default ($httpProvider, $cookiesProvider) => {
+export default ($httpProvider, $cookiesProvider, IdentityServiceProvider, CONSTANTS) => {
     'ngInject';
 
     $cookiesProvider.defaults.path = '/';
     $httpProvider.defaults.withCredentials = true;
 
-    $httpProvider.interceptors.push($q => ({
-        'responseError': rejection => {
-            return $q.reject(rejection);
-        },
+    $httpProvider.interceptors.push(() => ({
+        request(cfg) {
+            const IdentityService = IdentityServiceProvider.$get();
 
-        'requestError': rejection => {
-            return $q.reject(rejection);
+            if (IdentityService.isAuthenticated()) {
+                cfg.headers[CONSTANTS.SESSION_STORAGE.AUTH] = IdentityService.getIdentity().token;
+            }
+
+            return cfg;
         }
     }));
 };

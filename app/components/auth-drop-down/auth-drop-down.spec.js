@@ -1,32 +1,37 @@
 import AuthDropDownComponent from './auth-drop-down.component';
 
 describe('auth-drop-down component', () => {
-    const AuthService = jasmine.createSpyObj('AuthService', ['isAuthorized', 'getCurrentUser', 'logout']);
-    const sut = new AuthDropDownComponent.controller(AuthService);
+    const IdentityService = jasmine.createSpyObj('IdentityService', ['isAuthenticated', 'getIdentity']);
+    const AuthService = jasmine.createSpyObj('AuthService', ['logout']);
 
-    it('AuthService should be initialized', () => {
-        expect(sut.constructor.length).toBe(1);
-        expect(sut.AuthService).toBe(AuthService);
+    const sut = new AuthDropDownComponent.controller(AuthService, IdentityService);
+
+    it('should be initialized', () => {
+        expect(sut.constructor.length).toBe(2);
     });
 
     it('user should be initialized', () => {
-        const user = '{ "name": "admin" }';
+        const identity = {
+            email: "admin@admin.com",
+            roles: ["ADMIN"],
+            token: "someToken"
+        };
 
-        AuthService.getCurrentUser.and.returnValue('{ "name": "admin" }');
+        IdentityService.getIdentity.and.returnValue(identity);
 
         sut.$onInit();
 
-        expect(sut.user).toBe(user);
+        expect(sut.user).toBe(identity);
     });
 
     it('Should show content is user authorized', () => {
-        AuthService.isAuthorized.and.returnValue(true);
-        expect(sut.isAuthorized()).toBe(true);
+        IdentityService.isAuthenticated.and.returnValue(true);
+        expect(sut.isAuthenticated()).toBe(true);
     });
 
     it('Should hide content is user unauthorized', () => {
-        AuthService.isAuthorized.and.returnValue(false);
-        expect(sut.isAuthorized()).toBe(false);
+        IdentityService.isAuthenticated.and.returnValue(false);
+        expect(sut.isAuthenticated()).toBe(false);
     });
 
     it('should have logout', () => {

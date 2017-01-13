@@ -12,9 +12,7 @@ export default {
 
         submitForm({ $valid }) {
             if($valid) {
-                this.AuthService.login(this.username, this.password).then(() => {
-                    this.$state.go('home');
-                });
+                this.AuthService.login(this.email, this.password);
             }
         }
     }

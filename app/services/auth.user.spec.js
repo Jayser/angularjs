@@ -3,85 +3,103 @@ import AuthService from './auth.service';
 describe('AuthService', () => {
     const CONSTANTS = {
         URLS: {
-            LOGIN: '/api/auth/login'
+            AUTH: '/rest/login'
         },
-        COOKIES: {
-            AUTH: 'authorization.data'
-        },
-        EVENTS: {
-            USER_LOGIN: 'userLogin',
-            USER_LOGOUT: 'userLogout'
+        SESSION_STORAGE: {
+            AUTH: 'authenticate'
         }
     };
-    const $rootScope = jasmine.createSpyObj('$rootScope', ['$emit']);
-    const $cookies = jasmine.createSpyObj('$cookies', ['put', 'get', 'remove']);
-    const $http = jasmine.createSpyObj('$http', ['post']);
+
+    const $state = jasmine.createSpyObj('$state', ['go', 'reload', '']);
+    const $rootScope = {};
+    const $sessionStorage = {};
+    const IdentityService = jasmine.createSpyObj('IdentityService', ['identity', 'authenticate']);
     const promise = jasmine.createSpyObj('promise', ['then']);
 
-    const sut = AuthService($rootScope, $cookies, $http, CONSTANTS);
+    const sut = new AuthService($state, $rootScope, $sessionStorage, IdentityService, CONSTANTS);
 
     beforeEach(() => {
-        $http.post.and.returnValue(promise);
+        IdentityService.identity.and.returnValue(promise);
+    });
+
+    it('Should be initialized', () => {
+        expect(sut.constructor.length).toEqual(5);
+    });
+
+    describe('Should be changed state to', () => {
+        it('default', () => {
+            sut._goTo();
+            expect($state.go).toHaveBeenCalledWith('home');
+        });
+
+        it('transmitted', () => {
+            sut._goTo('login');
+            expect($state.go).toHaveBeenCalledWith('login');
+        });
+    });
+
+    it('Should be authenticate', () => {
+        sut.authenticate();
+
+        expect(IdentityService.authenticate).toHaveBeenCalledWith(angular.fromJson(sut.identity));
+    });
+
+    describe('Should be redirect to', () => {
+        beforeEach(() => {
+            sut._goTo = jasmine.createSpy('_goTo');
+        });
+
+        it('login', () => {
+            sut.isUnauthenticated();
+
+            expect(sut._goTo).toHaveBeenCalledWith('login');
+        });
+
+        it('access denied screen', () => {
+            sut.isAccessDenied();
+
+            expect(sut._goTo).toHaveBeenCalledWith('access-denied');
+        });
+
+        it('previews screen by default', () => {
+            sut.returnToState();
+
+            expect(sut._goTo).toHaveBeenCalledWith(undefined);
+        });
+
+        it('previews screen', () => {
+            sut.$rootScope = { returnToState: { name: 'someName' } };
+
+            sut.returnToState();
+
+            expect(sut._goTo).toHaveBeenCalledWith('someName');
+        });
+    });
+
+    it('Should be logout', () => {
+        sut.logout();
+
+        expect(IdentityService.authenticate).toHaveBeenCalledWith(null);
+        expect($state.reload).toHaveBeenCalledWith();
     });
 
     describe('Login', () => {
-        let returnedValue;
-        const name = 'admin';
+        const email = 'admin@admin.com';
         const password = 'admin';
-        const resMock = { data: { name: 'admin', _id: 'someid' } };
+        const resMock = 'ADMIN';
 
         beforeEach(() => {
             promise.then.and.callFake(function (cb) {
-                returnedValue = cb(resMock);
-                return this;
+                cb(resMock);
             });
         });
 
         it('should be success', () => {
-            sut.login(name, password);
+            sut.returnToState = jasmine.createSpy('returnToState');
+            sut.login(email, password);
 
-            expect($http.post).toHaveBeenCalled();
-            expect(promise.then).toHaveBeenCalled();
-            expect(returnedValue).toBe(resMock);
+            expect(IdentityService.identity).toHaveBeenCalled();
+            expect(sut.returnToState).toHaveBeenCalled();
         });
-
-        it('user should be authorized', () => {
-            sut.login(name, password);
-
-            expect($cookies.put).toHaveBeenCalled();
-            expect($rootScope.$emit).toHaveBeenCalled();
-            expect(returnedValue).toBe(resMock);
-        });
-    });
-
-    it('Should have log out', () => {
-        sut.logout();
-        expect($cookies.remove).toHaveBeenCalled();
-        expect($rootScope.$emit).toHaveBeenCalled();
-    });
-
-    it('As authorized user I can get user', () => {
-        const user = '{ "name": "admin" }';
-
-        $cookies.get.and.returnValue('{ "name": "admin" }');
-
-        sut.getCurrentUser();
-
-        expect($cookies.get()).toBe(user);
-    });
-
-    it('As unauthorized user I can\'n get user', () => {
-        $cookies.get.and.returnValue(null);
-        expect(sut.getCurrentUser()).toBe(null);
-    });
-
-    it('Should check is user authorized', () => {
-        $cookies.get.and.returnValue('{ "name": "admin" }');
-        expect(sut.isAuthorized()).toBe(true);
-    });
-
-    it('Should check is user unauthorized', () => {
-        $cookies.get.and.returnValue(null);
-        expect(sut.isAuthorized()).toBe(false);
     });
 });
