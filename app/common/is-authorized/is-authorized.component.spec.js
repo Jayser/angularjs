@@ -1,20 +1,68 @@
-import IsAuthorizedComponent from './is-authorized.component';
+import IsAuthorizedComponent from './is-authorized.controller';
 
 describe('is-authorized component', () => {
-    const $IdentityService = jasmine.createSpyObj('$IdentityService', ['isAuthenticated']);
-    const sut = new IsAuthorizedComponent.controller($IdentityService);
+    let $IdentityService, sut;
+    beforeEach(() => {
+        $IdentityService = jasmine.createSpyObj('$IdentityService', ['isAuthenticated', 'isInAnyRole']);
+        sut = new IsAuthorizedComponent($IdentityService);
+    });
 
     it('$IdentityService should be initialized', () => {
         expect(sut.constructor.length).toBe(1);
     });
 
-    it('Should show content is user authorized', () => {
-        $IdentityService.isAuthenticated.and.returnValue(true);
-        expect(sut.isAuthenticated()).toBe(true);
+    describe('Should show content', () => {
+        describe('is user authorized', () => {
+            it('isAuthenticated', () => {
+                sut.isAuthenticated = true;
+                $IdentityService.isAuthenticated.and.returnValue(true);
+
+                expect(sut.isAllowed()).toBe(true);
+            });
+
+            it('and has correct roles', () => {
+                sut.isInAnyRole = ['ADMIN'];
+                $IdentityService.isInAnyRole.and.returnValue(true);
+
+                expect(sut.isAllowed()).toBe(true);
+            });
+        });
+
+        describe('is user unauthorized', () => {
+            it('isAuthenticated', () => {
+                sut.isAuthenticated = false;
+                $IdentityService.isAuthenticated.and.returnValue(false);
+
+                expect(sut.isAllowed()).toBe(true);
+            });
+        });
     });
 
-    it('Should hide content is user unauthorized', () => {
-        $IdentityService.isAuthenticated.and.returnValue(false);
-        expect(sut.isAuthenticated()).toBe(false);
+    describe('Should hide content', () => {
+        describe('is user authorized', () => {
+            it('and hasn\'t correct roles', () => {
+                sut.isInAnyRole = ['GUEST'];
+
+                $IdentityService.isInAnyRole.and.returnValue(false);
+
+                expect(sut.isAllowed()).toBe(false);
+            });
+        });
+
+        describe('is user unauthorized', () => {
+            it('isAuthenticated', () => {
+                sut.isAuthenticated = true;
+                $IdentityService.isAuthenticated.and.returnValue(false);
+
+                expect(sut.isAllowed()).toBe(false);
+            });
+
+            it('and has roles', () => {
+                sut.isInAnyRole = ['ADMIN'];
+                $IdentityService.isInAnyRole.and.returnValue(false);
+
+                expect(sut.isAllowed()).toBe(false);
+            });
+        });
     });
 });
